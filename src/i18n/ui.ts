@@ -21,50 +21,56 @@ const nl = {
   "meta.description":
     "De Royal Antwerp Aviation Club bestaat honderd jaar. Jubileumweekend op 6 en 7 november 2027, luchthaven Antwerpen (Deurne).",
 
-  "nav.about": "Het weekend",
+  "nav.events": "Evenementen",
+  "nav.about": "Over RAAC",
   "nav.tickets": "Tickets",
-  "nav.programme": "Programma",
+  "nav.programme": "Fly-in Weekend",
   "nav.history": "1927–2027",
   "nav.practical": "Praktisch",
+  "nav.finale": "Finale",
   "nav.partners": "Partners",
+  "nav.gala": "Gala",
   "nav.skip": "Spring naar de inhoud",
 
   "marquee.a": "RAAC 100",
-  "marquee.b": "6 & 7 november 2027",
-  "marquee.c": "10u – 18u",
-  "marquee.d": "Luchthaven Antwerpen (Deurne)",
+  "marquee.b": "8 & 9 mei 2027",
+  "marquee.c": "29 mei 2027",
+  "marquee.d": "6 november 2027",
 
-  "hero.title": "RAAC 100",
-  "hero.subtitle": "jubileumweekend 2027",
-  "hero.date.label": "Datum",
-  "hero.date.value": "6 & 7 november",
-  "hero.time.label": "Tijd",
-  "hero.time.value": "10u – 18u",
-  "hero.time.note": "(laatste toegang 17u)",
-  "hero.place.label": "Locatie",
-  "hero.place.value": "Internationale Luchthaven Antwerpen (Deurne)",
-  "hero.cta": "Bekijk het programma",
+  "hero.title": "100 jaar RAAC",
+  "hero.years": "1927 – 2027",
+  "hero.subtitle": "Een eeuw passie voor luchtvaart",
+  "hero.intro":
+    "Honderd jaar vliegen. Honderd jaar Antwerpen. Honderd jaar RAAC.",
+  "hero.cta": "Bekijk de evenementen",
+
+  "events.heading": "2027 wordt een feestjaar",
+  "events.intro":
+    "We brengen piloten, vliegtuigen, leden en oud-leden, luchtvaartprofessionals, buurtbewoners, partners én iedereen met een hart voor luchtvaart samen. Met drie bijzondere momenten:",
+  "events.flyin.date": "8 & 9 mei 2027",
+  "events.flyin.title": "RAAC 100 Fly-in Weekend",
+  "events.flyin.body":
+    "Twee dagen vliegtuigen, historie, demonstraties en General Aviation op Antwerp Airport.",
+  "events.flyin.cta": "Ontdek het weekend",
+  "events.gala.date": "29 mei 2027",
+  "events.gala.title": "RAAC 100 Gala",
+  "events.gala.body":
+    "Een stijlvolle feestavond voor iedereen die deel uitmaakt van het verhaal van RAAC.",
+  "events.gala.cta": "Ontdek het gala",
+  "events.finale.badge": "In voorbereiding",
+  "events.finale.date": "6 november 2027",
+  "events.finale.title": "Finale van ons feestjaar",
+  "events.finale.body":
+    "We hopen ons eeuwfeest symbolisch af te sluiten waar RAAC al honderd jaar thuis is: in Antwerpen.",
+  "events.finale.cta": "Lees meer",
 
   "about.heading": "Honderd jaar. Dezelfde Vliegclub.",
   "about.body":
     "Op 3 november 1927 richtte Pierre Schellekens de Antwerp Aviation Club op, met Jan Olieslagers als eerste voorzitter. Honderd jaar later vliegen we nog altijd vanuit Deurne. Twee dagen lang zetten we de hangar open voor leden, oud-leden, families en iedereen die ooit met ons meevloog.",
 
-  "expect.heading": "Wat mag je verwachten?",
-  "expect.lede":
-    "Een weekend waarin honderd jaar Antwerpse luchtvaart vanop de eerste rij te zien is.",
-  "expect.1": "De volledige clubvloot in static display",
-  "expect.2": "Historische toestellen uit binnen- en buitenland",
-  "expect.3": "Doorlopende vliegactiviteiten",
-  "expect.4": "Het clubarchief: honderd jaar logboeken en foto's",
-  "expect.5": "Rondleidingen in de werkplaats en het leslokaal",
-  "expect.6": "Kennismaken met de instructeurs en de opleiding PPL(A)",
-  "expect.7": "Eten en drinken ter plaatse, het hele weekend door",
-  "expect.note":
-    "Voor bezoekers met gevoelige oren raden we aan gehoorbescherming mee te brengen.",
-
-  "tickets.heading": "Tickets",
+  "tickets.heading": "Tickets — Fly-in Weekend",
   "tickets.lede":
-    "Eén ticket geeft toegang tot de volledige dag, aan de kassa of online.",
+    "Eén ticket geeft toegang tot de volledige dag van het Fly-in Weekend, aan de kassa of online.",
   "tickets.stub.label": "Toegangsbewijs",
   // [PLACEHOLDER] pricing — replace with the real tariffs from the committee.
   "tickets.tier.adult.label": "Volwassenen",
@@ -77,29 +83,38 @@ const nl = {
     "Prijs per dag, per persoon. Ook verkrijgbaar aan de kassa op het terrein.",
   "tickets.cta": "Tickets kopen",
 
-  "programme.heading": "Programma",
-  "programme.day1": "Zaterdag 6 november",
-  "programme.day2": "Zondag 7 november",
-  "programme.d1s1.time": "10u00",
-  "programme.d1s1.what": "Hangar open, koffie, het archief ligt op tafel",
-  "programme.d1s2.time": "11u30",
-  "programme.d1s2.what": "Formatievlucht van de clubvloot",
-  "programme.d1s3.time": "14u00",
-  "programme.d1s3.what": "Rondleiding werkplaats en leslokaal",
-  "programme.d1s4.time": "16u00",
-  "programme.d1s4.what": "Academische zitting en groepsfoto",
-  "programme.d1s5.time": "18u00",
-  "programme.d1s5.what": "Receptie in de hangar",
-  "programme.d2s1.time": "10u00",
-  "programme.d2s1.what": "Hangar open, static display",
-  "programme.d2s2.time": "11u00",
-  "programme.d2s2.what": "Infomoment opleiding Privaat Piloot PPL(A)",
-  "programme.d2s3.time": "13u00",
-  "programme.d2s3.what": "Aankomst bezoekende toestellen",
-  "programme.d2s4.time": "15u00",
-  "programme.d2s4.what": "Demonstratievluchten historische toestellen",
-  "programme.d2s5.time": "17u30",
-  "programme.d2s5.what": "Afsluiting",
+  "flyin.eyebrow": "8 & 9 mei 2027 — Antwerp Airport",
+  "flyin.heading": "RAAC 100 Fly-in Weekend",
+  "flyin.tagline": "Oshkosh aan de Schelde? Waarom niet.",
+  "flyin.intro.p1":
+    "Een vliegclub die honderd jaar wordt, viert dat waar het allemaal om draait: tussen de vliegtuigen en in de lucht.",
+  "flyin.intro.p2":
+    "Op 8 en 9 mei 2027 willen we Antwerp Airport laten bruisen van de luchtvaart.",
+  "flyin.intro.p3":
+    "Historische vliegtuigen. Warbirds. Moderne toestellen. Piloten en vliegclubs uit binnen- en buitenland. Luchtvaartprofessionals. Demonstraties. Opleidingen. Defensie. En vooral: duizenden mensen die luchtvaart van dichtbij willen beleven.",
+  "flyin.stampe.heading": "De Stampe SV-4 keert terug naar Antwerpen",
+  "flyin.stampe.p1":
+    "Eén vliegtuig krijgt tijdens ons eeuwfeest een bijzondere plaats: de legendarische Stampe SV-4. Een Belgische klassieker met Antwerpse roots en een iconische plaats in onze luchtvaartgeschiedenis.",
+  "flyin.stampe.p2":
+    "Ons doel? Zoveel mogelijk SV-4's uit binnen- en buitenland opnieuw samenbrengen in Antwerpen — een unieke ontmoeting met levende luchtvaartgeschiedenis.",
+  "flyin.sky.heading": "Kijk omhoog!",
+  "flyin.sky.p1":
+    "Een verjaardag van een vliegclub vier je natuurlijk ook in de lucht. We willen Antwerpse formatieteams en bijzondere vliegtuigen samenbrengen voor demonstraties boven Antwerp Airport.",
+  "flyin.sky.p2":
+    "Formaties, historische toestellen en warbirds maken van de luchthaven één groot luchtvaartpodium.",
+  "flyin.behind.heading": "Ontdek wat er achter de schermen gebeurt",
+  "flyin.behind.p1":
+    "Antwerp Airport is veel meer dan lijnvluchten: het is een thuisbasis voor vliegscholen, onderhoud, General Aviation, zakenluchtvaart, ambulance-, inspectie- en fotovluchten en tal van gespecialiseerde luchtvaartactiviteiten.",
+  "flyin.behind.p2":
+    "Ontmoet piloten, techniekers, instructeurs en luchtvaartprofessionals. Ontdek hoe vliegtuigen worden onderhouden. Maak kennis met vliegopleidingen en ontdek misschien zelfs je eigen toekomst in de luchtvaart.",
+  "flyin.neighbours.heading": "Welkom, buren!",
+  "flyin.neighbours.p1":
+    "Al honderd jaar delen RAAC en Antwerp Airport hun omgeving met duizenden Antwerpenaren. Buurtbewoners en stakeholders uit de onmiddellijke omgeving nodigen we op zaterdagmorgen uit voor een feestelijke brunch waarmee we samen het verjaardagsweekend openen.",
+  "flyin.closing.heading": "Twee dagen. Eén luchthaven. Honderd jaar luchtvaart.",
+  "flyin.closing.body":
+    "Of je nu piloot bent, vliegtuigspotter, luchtvaartprofessional, buur, nieuwsgierige Antwerpenaar of gewoon iemand die bij het geluid van een vliegtuigmotor automatisch omhoog kijkt: dit weekend is voor jou.",
+  "flyin.closing.cta": "Save the date.",
+  "flyin.closing.note": "En kijk vooral af en toe omhoog.",
 
   "history.heading": "1927 – 2027",
   "history.lede": "Honderd jaar Royal Antwerp Aviation Club, kort samengevat.",
@@ -136,12 +151,27 @@ const nl = {
   "practical.pilots.warning":
     "Controleer de NOTAM's voor vertrek. Tijdens demonstratievluchten kan het platform tijdelijk gesloten zijn.",
 
+  "finale.badge": "In voorbereiding",
+  "finale.eyebrow": "6 november 2027 — Antwerpen",
+  "finale.heading": "Finale van een bijzonder jaar",
+  "finale.tagline": "Waar anders dan in Antwerpen?",
+  "finale.p1": "RAAC en Antwerpen delen een lange geschiedenis.",
+  "finale.p2":
+    "Bij het 75-jarig bestaan werd de club officieel ontvangen door het Antwerpse stadsbestuur. Ook bij de 90ste verjaardag kreeg RAAC een bijzondere ontvangst.",
+  "finale.p3":
+    "Bij honderd jaar willen we die mooie traditie graag voortzetten. Daarom hopen we op 6 november 2027 ons feestjaar af te sluiten met een officiële ontvangst in het Antwerpse Stadhuis — een symbolisch slotmoment voor een club die al sinds 1927 nauw verbonden is met de stad en haar luchthaven.",
+  "finale.reflect":
+    "Een gelegenheid om terug te kijken. Om mensen te bedanken. Maar vooral om vooruit te kijken — want na alle festiviteiten van 2027 begint op 1 januari gewoon ons volgende hoofdstuk.",
+  "finale.disclaimer":
+    "Deze ontvangst is nog niet formeel bevestigd door Stad Antwerpen. Datum, locatie en programma kunnen nog wijzigen.",
+
   "partners.heading": "Met de steun van",
 
   "socials.heading": "Volg ons",
   "socials.website.label": "Website",
 
-  "closing.heading": "Tot in november 2027",
+  "closing.heading":
+    "100 jaar RAAC. Een eeuw geschiedenis. En we zijn nog lang niet uitgevlogen.",
   "closing.cta": "Bekijk het programma",
   "closing.prgm": "Koop tickets",
 
@@ -155,7 +185,41 @@ const nl = {
   "lang.label": "Taal",
 
   "nav.main": "Hoofdnavigatie",
-  "nav.sections": "Secties op deze pagina"
+  "nav.sections": "Secties op deze pagina",
+
+  /* ===============================================================
+     GALA PAGE — the one standalone page, linked from the "events"
+     tiles on the homepage. Everything else about 2027 lives on the
+     one-pager itself.
+     =============================================================== */
+  "gala.meta.title": "RAAC 100 Gala — 29 mei 2027",
+  "gala.meta.description":
+    "Een stijlvolle feestavond voor leden, oud-leden en vrienden van de Royal Antwerp Aviation Club. Onderdeel van het RAAC 100 jubileumjaar.",
+  "gala.eyebrow": "29 mei 2027",
+  "gala.heading": "RAAC 100 Gala",
+  "gala.tagline": "Sommige verjaardagen verdienen nét dat beetje meer.",
+  "gala.intro.p1":
+    "Honderd jaar RAAC is er zo één. Daarom ruilen we op 29 mei de cockpit even in voor een bijzondere feestavond.",
+  "gala.intro.p2":
+    "Een avond voor leden en oud-leden, piloten, partners, sympathisanten en vrienden van de club — om herinneringen boven te halen, sterke verhalen opnieuw te vertellen en oude bekenden terug te zien.",
+  "gala.fact.body":
+    "Het eerste clubtoestel met dieselfuel: Jet A1 — de OO-VPE. Een gedurfde maar vooruitziende beslissing.",
+  "gala.intro.p3": "Maar vooral een avond om samen te vieren.",
+  "gala.people.heading": "Honderd jaar mensen",
+  "gala.people.quote":
+    "Vliegtuigen maken deel uit van onze geschiedenis. Maar mensen maakten onze geschiedenis.",
+  "gala.people.p1":
+    "Generaties piloten, instructeurs, vrijwilligers en bestuursleden hielden RAAC honderd jaar lang in de lucht. Ook wanneer er af en toe wat turbulentie was.",
+  "gala.people.p2":
+    "Dankzij hen is RAAC vandaag de oudste nog actieve vliegclub van België — en tegelijk een moderne club die volop naar de toekomst kijkt. Op 29 mei zetten we die mensen in de schijnwerpers.",
+  "gala.setting.heading": "Antwerpen vormt het decor",
+  "gala.setting.p1":
+    "Voor deze uitzonderlijke verjaardag hoort een uitzonderlijke locatie: een stijlvolle avond, een bijzondere Antwerpse setting, lekker eten, mooie ontmoetingen, herinneringen, muziek en verhalen uit honderd jaar RAAC.",
+  "gala.setting.p2": "En daarna? Dan maken we nieuwe herinneringen.",
+  "gala.closing.date": "29 mei 2027",
+  "gala.closing.cta1": "Dress up. Show up.",
+  "gala.closing.cta2": "And celebrate 100 years of flying together.",
+  "gala.back": "Terug naar raac.be"
 } as const;
 
 export type UIKey = keyof typeof nl;
@@ -166,50 +230,58 @@ const fr: Dictionary = {
   "meta.description":
     "Le Royal Antwerp Aviation Club a cent ans. Week-end du centenaire les 6 et 7 novembre 2027, aéroport d'Anvers (Deurne).",
 
-  "nav.about": "Le week-end",
+  /* TODO — untranslated. Dutch text duplicated as a stub so the build
+     passes; needs a real French translation before launch. */
+  "nav.events": "Evenementen",
+  "nav.about": "Over RAAC",
   "nav.tickets": "Billets",
-  "nav.programme": "Programme",
+  "nav.programme": "Fly-in Weekend",
   "nav.history": "1927–2027",
   "nav.practical": "Infos pratiques",
+  "nav.finale": "Finale",
   "nav.partners": "Partenaires",
+  "nav.gala": "Gala",
   "nav.skip": "Aller au contenu",
 
   "marquee.a": "RAAC 100",
-  "marquee.b": "6 & 7 novembre 2027",
-  "marquee.c": "10h – 18h",
-  "marquee.d": "Aéroport d'Anvers (Deurne)",
+  "marquee.b": "8 & 9 mei 2027",
+  "marquee.c": "29 mei 2027",
+  "marquee.d": "6 november 2027",
 
-  "hero.title": "RAAC 100",
-  "hero.subtitle": "week-end du centenaire 2027",
-  "hero.date.label": "Date",
-  "hero.date.value": "6 & 7 novembre",
-  "hero.time.label": "Horaire",
-  "hero.time.value": "10h – 18h",
-  "hero.time.note": "(dernière entrée à 17h)",
-  "hero.place.label": "Lieu",
-  "hero.place.value": "Aéroport international d'Anvers (Deurne)",
-  "hero.cta": "Voir le programme",
+  "hero.title": "100 jaar RAAC",
+  "hero.years": "1927 – 2027",
+  "hero.subtitle": "Een eeuw passie voor luchtvaart",
+  "hero.intro":
+    "Honderd jaar vliegen. Honderd jaar Antwerpen. Honderd jaar RAAC.",
+  "hero.cta": "Bekijk de evenementen",
+
+  "events.heading": "2027 wordt een feestjaar",
+  "events.intro":
+    "We brengen piloten, vliegtuigen, leden en oud-leden, luchtvaartprofessionals, buurtbewoners, partners én iedereen met een hart voor luchtvaart samen. Met drie bijzondere momenten:",
+  "events.flyin.date": "8 & 9 mei 2027",
+  "events.flyin.title": "RAAC 100 Fly-in Weekend",
+  "events.flyin.body":
+    "Twee dagen vliegtuigen, historie, demonstraties en General Aviation op Antwerp Airport.",
+  "events.flyin.cta": "Ontdek het weekend",
+  "events.gala.date": "29 mei 2027",
+  "events.gala.title": "RAAC 100 Gala",
+  "events.gala.body":
+    "Een stijlvolle feestavond voor iedereen die deel uitmaakt van het verhaal van RAAC.",
+  "events.gala.cta": "Ontdek het gala",
+  "events.finale.badge": "In voorbereiding",
+  "events.finale.date": "6 november 2027",
+  "events.finale.title": "Finale van ons feestjaar",
+  "events.finale.body":
+    "We hopen ons eeuwfeest symbolisch af te sluiten waar RAAC al honderd jaar thuis is: in Antwerpen.",
+  "events.finale.cta": "Lees meer",
 
   "about.heading": "Cent ans. Le même aéro club.",
   "about.body":
     "Le 3 novembre 1927, Pierre Schellekens fondait l'Antwerp Aviation Club, avec Jan Olieslagers comme premier président. Cent ans plus tard, nous volons toujours depuis Deurne. Pendant deux jours, le hangar est ouvert aux membres, aux anciens, aux familles et à tous ceux qui ont un jour volé avec nous.",
 
-  "expect.heading": "À quoi s'attendre ?",
-  "expect.lede":
-    "Un week-end pour vivre cent ans d'aviation anversoise au premier rang.",
-  "expect.1": "Toute la flotte du club en exposition statique",
-  "expect.2": "Des appareils historiques de Belgique et de l'étranger",
-  "expect.3": "Des activités aériennes en continu",
-  "expect.4": "Les archives du club : cent ans de carnets et de photos",
-  "expect.5": "Visites guidées de l'atelier et de la salle de cours",
-  "expect.6": "Rencontre avec les instructeurs et la formation PPL(A)",
-  "expect.7": "Restauration et boissons sur place, tout le week-end",
-  "expect.note":
-    "Pour les visiteurs sensibles au bruit, nous conseillons d'apporter une protection auditive.",
-
-  "tickets.heading": "Billets",
+  "tickets.heading": "Tickets — Fly-in Weekend",
   "tickets.lede":
-    "Un billet donne accès à la journée complète, en caisse ou en ligne.",
+    "Eén ticket geeft toegang tot de volledige dag van het Fly-in Weekend, aan de kassa of online.",
   "tickets.stub.label": "Billet d'entrée",
   "tickets.tier.adult.label": "Adultes",
   "tickets.tier.adult.price": "10 €",
@@ -221,29 +293,38 @@ const fr: Dictionary = {
     "Prix par jour, par personne. Également disponible en caisse sur place.",
   "tickets.cta": "Acheter des billets",
 
-  "programme.heading": "Programme",
-  "programme.day1": "Samedi 6 novembre",
-  "programme.day2": "Dimanche 7 novembre",
-  "programme.d1s1.time": "10h00",
-  "programme.d1s1.what": "Ouverture du hangar, café, les archives sur la table",
-  "programme.d1s2.time": "11h30",
-  "programme.d1s2.what": "Vol en formation de la flotte du club",
-  "programme.d1s3.time": "14h00",
-  "programme.d1s3.what": "Visite de l'atelier et de la salle de cours",
-  "programme.d1s4.time": "16h00",
-  "programme.d1s4.what": "Séance académique et photo de groupe",
-  "programme.d1s5.time": "18h00",
-  "programme.d1s5.what": "Réception dans le hangar",
-  "programme.d2s1.time": "10h00",
-  "programme.d2s1.what": "Ouverture du hangar, exposition statique",
-  "programme.d2s2.time": "11h00",
-  "programme.d2s2.what": "Séance d'information sur la formation PPL(A)",
-  "programme.d2s3.time": "13h00",
-  "programme.d2s3.what": "Arrivée des appareils visiteurs",
-  "programme.d2s4.time": "15h00",
-  "programme.d2s4.what": "Vols de démonstration d'appareils historiques",
-  "programme.d2s5.time": "17h30",
-  "programme.d2s5.what": "Clôture",
+  "flyin.eyebrow": "8 & 9 mei 2027 — Antwerp Airport",
+  "flyin.heading": "RAAC 100 Fly-in Weekend",
+  "flyin.tagline": "Oshkosh aan de Schelde? Waarom niet.",
+  "flyin.intro.p1":
+    "Een vliegclub die honderd jaar wordt, viert dat waar het allemaal om draait: tussen de vliegtuigen en in de lucht.",
+  "flyin.intro.p2":
+    "Op 8 en 9 mei 2027 willen we Antwerp Airport laten bruisen van de luchtvaart.",
+  "flyin.intro.p3":
+    "Historische vliegtuigen. Warbirds. Moderne toestellen. Piloten en vliegclubs uit binnen- en buitenland. Luchtvaartprofessionals. Demonstraties. Opleidingen. Defensie. En vooral: duizenden mensen die luchtvaart van dichtbij willen beleven.",
+  "flyin.stampe.heading": "De Stampe SV-4 keert terug naar Antwerpen",
+  "flyin.stampe.p1":
+    "Eén vliegtuig krijgt tijdens ons eeuwfeest een bijzondere plaats: de legendarische Stampe SV-4. Een Belgische klassieker met Antwerpse roots en een iconische plaats in onze luchtvaartgeschiedenis.",
+  "flyin.stampe.p2":
+    "Ons doel? Zoveel mogelijk SV-4's uit binnen- en buitenland opnieuw samenbrengen in Antwerpen — een unieke ontmoeting met levende luchtvaartgeschiedenis.",
+  "flyin.sky.heading": "Kijk omhoog!",
+  "flyin.sky.p1":
+    "Een verjaardag van een vliegclub vier je natuurlijk ook in de lucht. We willen Antwerpse formatieteams en bijzondere vliegtuigen samenbrengen voor demonstraties boven Antwerp Airport.",
+  "flyin.sky.p2":
+    "Formaties, historische toestellen en warbirds maken van de luchthaven één groot luchtvaartpodium.",
+  "flyin.behind.heading": "Ontdek wat er achter de schermen gebeurt",
+  "flyin.behind.p1":
+    "Antwerp Airport is veel meer dan lijnvluchten: het is een thuisbasis voor vliegscholen, onderhoud, General Aviation, zakenluchtvaart, ambulance-, inspectie- en fotovluchten en tal van gespecialiseerde luchtvaartactiviteiten.",
+  "flyin.behind.p2":
+    "Ontmoet piloten, techniekers, instructeurs en luchtvaartprofessionals. Ontdek hoe vliegtuigen worden onderhouden. Maak kennis met vliegopleidingen en ontdek misschien zelfs je eigen toekomst in de luchtvaart.",
+  "flyin.neighbours.heading": "Welkom, buren!",
+  "flyin.neighbours.p1":
+    "Al honderd jaar delen RAAC en Antwerp Airport hun omgeving met duizenden Antwerpenaren. Buurtbewoners en stakeholders uit de onmiddellijke omgeving nodigen we op zaterdagmorgen uit voor een feestelijke brunch waarmee we samen het verjaardagsweekend openen.",
+  "flyin.closing.heading": "Twee dagen. Eén luchthaven. Honderd jaar luchtvaart.",
+  "flyin.closing.body":
+    "Of je nu piloot bent, vliegtuigspotter, luchtvaartprofessional, buur, nieuwsgierige Antwerpenaar of gewoon iemand die bij het geluid van een vliegtuigmotor automatisch omhoog kijkt: dit weekend is voor jou.",
+  "flyin.closing.cta": "Save the date.",
+  "flyin.closing.note": "En kijk vooral af en toe omhoog.",
 
   "history.heading": "1927 – 2027",
   "history.lede": "Cent ans de Royal Antwerp Aviation Club, en bref.",
@@ -280,12 +361,27 @@ const fr: Dictionary = {
   "practical.pilots.warning":
     "Consultez les NOTAM avant le départ. L'aire peut être temporairement fermée pendant les vols de démonstration.",
 
+  "finale.badge": "In voorbereiding",
+  "finale.eyebrow": "6 november 2027 — Antwerpen",
+  "finale.heading": "Finale van een bijzonder jaar",
+  "finale.tagline": "Waar anders dan in Antwerpen?",
+  "finale.p1": "RAAC en Antwerpen delen een lange geschiedenis.",
+  "finale.p2":
+    "Bij het 75-jarig bestaan werd de club officieel ontvangen door het Antwerpse stadsbestuur. Ook bij de 90ste verjaardag kreeg RAAC een bijzondere ontvangst.",
+  "finale.p3":
+    "Bij honderd jaar willen we die mooie traditie graag voortzetten. Daarom hopen we op 6 november 2027 ons feestjaar af te sluiten met een officiële ontvangst in het Antwerpse Stadhuis — een symbolisch slotmoment voor een club die al sinds 1927 nauw verbonden is met de stad en haar luchthaven.",
+  "finale.reflect":
+    "Een gelegenheid om terug te kijken. Om mensen te bedanken. Maar vooral om vooruit te kijken — want na alle festiviteiten van 2027 begint op 1 januari gewoon ons volgende hoofdstuk.",
+  "finale.disclaimer":
+    "Deze ontvangst is nog niet formeel bevestigd door Stad Antwerpen. Datum, locatie en programma kunnen nog wijzigen.",
+
   "partners.heading": "Avec le soutien de",
 
   "socials.heading": "Suivez-nous",
   "socials.website.label": "Site web",
 
-  "closing.heading": "Rendez-vous en novembre 2027",
+  "closing.heading":
+    "100 jaar RAAC. Een eeuw geschiedenis. En we zijn nog lang niet uitgevlogen.",
   "closing.cta": "Voir le programme",
   "closing.prgm": "Acheter des billets",
 
@@ -299,6 +395,35 @@ const fr: Dictionary = {
   "lang.label": "Langue",
   "nav.main": "Navigation principale",
   "nav.sections": "Sections de cette page",
+
+  "gala.meta.title": "RAAC 100 Gala — 29 mei 2027",
+  "gala.meta.description":
+    "Een stijlvolle feestavond voor leden, oud-leden en vrienden van de Royal Antwerp Aviation Club. Onderdeel van het RAAC 100 jubileumjaar.",
+  "gala.eyebrow": "29 mei 2027",
+  "gala.heading": "RAAC 100 Gala",
+  "gala.tagline": "Sommige verjaardagen verdienen nét dat beetje meer.",
+  "gala.intro.p1":
+    "Honderd jaar RAAC is er zo één. Daarom ruilen we op 29 mei de cockpit even in voor een bijzondere feestavond.",
+  "gala.intro.p2":
+    "Een avond voor leden en oud-leden, piloten, partners, sympathisanten en vrienden van de club — om herinneringen boven te halen, sterke verhalen opnieuw te vertellen en oude bekenden terug te zien.",
+  "gala.fact.body":
+    "Het eerste clubtoestel met dieselfuel: Jet A1 — de OO-VPE. Een gedurfde maar vooruitziende beslissing.",
+  "gala.intro.p3": "Maar vooral een avond om samen te vieren.",
+  "gala.people.heading": "Honderd jaar mensen",
+  "gala.people.quote":
+    "Vliegtuigen maken deel uit van onze geschiedenis. Maar mensen maakten onze geschiedenis.",
+  "gala.people.p1":
+    "Generaties piloten, instructeurs, vrijwilligers en bestuursleden hielden RAAC honderd jaar lang in de lucht. Ook wanneer er af en toe wat turbulentie was.",
+  "gala.people.p2":
+    "Dankzij hen is RAAC vandaag de oudste nog actieve vliegclub van België — en tegelijk een moderne club die volop naar de toekomst kijkt. Op 29 mei zetten we die mensen in de schijnwerpers.",
+  "gala.setting.heading": "Antwerpen vormt het decor",
+  "gala.setting.p1":
+    "Voor deze uitzonderlijke verjaardag hoort een uitzonderlijke locatie: een stijlvolle avond, een bijzondere Antwerpse setting, lekker eten, mooie ontmoetingen, herinneringen, muziek en verhalen uit honderd jaar RAAC.",
+  "gala.setting.p2": "En daarna? Dan maken we nieuwe herinneringen.",
+  "gala.closing.date": "29 mei 2027",
+  "gala.closing.cta1": "Dress up. Show up.",
+  "gala.closing.cta2": "And celebrate 100 years of flying together.",
+  "gala.back": "Terug naar raac.be",
 };
 
 const en: Dictionary = {
@@ -306,49 +431,58 @@ const en: Dictionary = {
   "meta.description":
     "The Royal Antwerp Aviation Club turns one hundred. Centenary weekend on 6 and 7 November 2027, Antwerp Airport (Deurne).",
 
-  "nav.about": "The weekend",
+  /* TODO — untranslated. Dutch text duplicated as a stub so the build
+     passes; needs a real English translation before launch. */
+  "nav.events": "Evenementen",
+  "nav.about": "Over RAAC",
   "nav.tickets": "Tickets",
-  "nav.programme": "Programme",
+  "nav.programme": "Fly-in Weekend",
   "nav.history": "1927–2027",
   "nav.practical": "Practical",
+  "nav.finale": "Finale",
   "nav.partners": "Partners",
+  "nav.gala": "Gala",
   "nav.skip": "Skip to content",
 
   "marquee.a": "RAAC 100",
-  "marquee.b": "6 & 7 November 2027",
-  "marquee.c": "10:00 – 18:00",
-  "marquee.d": "Antwerp Airport (Deurne)",
+  "marquee.b": "8 & 9 mei 2027",
+  "marquee.c": "29 mei 2027",
+  "marquee.d": "6 november 2027",
 
-  "hero.title": "RAAC 100",
-  "hero.subtitle": "centenary weekend 2027",
-  "hero.date.label": "Date",
-  "hero.date.value": "6 & 7 November",
-  "hero.time.label": "Time",
-  "hero.time.value": "10:00 – 18:00",
-  "hero.time.note": "(last entry 17:00)",
-  "hero.place.label": "Location",
-  "hero.place.value": "Antwerp International Airport (Deurne)",
-  "hero.cta": "See the programme",
+  "hero.title": "100 jaar RAAC",
+  "hero.years": "1927 – 2027",
+  "hero.subtitle": "Een eeuw passie voor luchtvaart",
+  "hero.intro":
+    "Honderd jaar vliegen. Honderd jaar Antwerpen. Honderd jaar RAAC.",
+  "hero.cta": "Bekijk de evenementen",
+
+  "events.heading": "2027 wordt een feestjaar",
+  "events.intro":
+    "We brengen piloten, vliegtuigen, leden en oud-leden, luchtvaartprofessionals, buurtbewoners, partners én iedereen met een hart voor luchtvaart samen. Met drie bijzondere momenten:",
+  "events.flyin.date": "8 & 9 mei 2027",
+  "events.flyin.title": "RAAC 100 Fly-in Weekend",
+  "events.flyin.body":
+    "Twee dagen vliegtuigen, historie, demonstraties en General Aviation op Antwerp Airport.",
+  "events.flyin.cta": "Ontdek het weekend",
+  "events.gala.date": "29 mei 2027",
+  "events.gala.title": "RAAC 100 Gala",
+  "events.gala.body":
+    "Een stijlvolle feestavond voor iedereen die deel uitmaakt van het verhaal van RAAC.",
+  "events.gala.cta": "Ontdek het gala",
+  "events.finale.badge": "In voorbereiding",
+  "events.finale.date": "6 november 2027",
+  "events.finale.title": "Finale van ons feestjaar",
+  "events.finale.body":
+    "We hopen ons eeuwfeest symbolisch af te sluiten waar RAAC al honderd jaar thuis is: in Antwerpen.",
+  "events.finale.cta": "Lees meer",
 
   "about.heading": "A hundred years. The same Flight club.",
   "about.body":
     "On 3 November 1927, Pierre Schellekens founded the Antwerp Aviation Club, with Jan Olieslagers as its first chairman. A hundred years on, we still fly from Deurne. For two days the hangar is open to members, former members, families, and anyone who ever flew with us.",
 
-  "expect.heading": "What to expect",
-  "expect.lede":
-    "A weekend to see a hundred years of Antwerp aviation from the front row.",
-  "expect.1": "The full club fleet on static display",
-  "expect.2": "Historic aircraft from Belgium and abroad",
-  "expect.3": "Flying throughout both days",
-  "expect.4": "The club archive: a hundred years of logbooks and photographs",
-  "expect.5": "Guided tours of the workshop and the classroom",
-  "expect.6": "Meet the instructors and hear about PPL(A) training",
-  "expect.7": "Food and drink on site all weekend",
-  "expect.note":
-    "Visitors sensitive to noise are advised to bring ear protection.",
-
-  "tickets.heading": "Tickets",
-  "tickets.lede": "One ticket covers the full day, at the gate or online.",
+  "tickets.heading": "Tickets — Fly-in Weekend",
+  "tickets.lede":
+    "Eén ticket geeft toegang tot de volledige dag van het Fly-in Weekend, aan de kassa of online.",
   "tickets.stub.label": "Admission ticket",
   "tickets.tier.adult.label": "Adults",
   "tickets.tier.adult.price": "€10",
@@ -360,30 +494,38 @@ const en: Dictionary = {
     "Price per day, per person. Also available at the gate on the day.",
   "tickets.cta": "Buy tickets",
 
-  "programme.heading": "Programme",
-  "programme.day1": "Saturday 6 November",
-  "programme.day2": "Sunday 7 November",
-  "programme.d1s1.time": "10:00",
-  "programme.d1s1.what":
-    "Hangar opens, coffee, the archive laid out on the table",
-  "programme.d1s2.time": "11:30",
-  "programme.d1s2.what": "Formation flight of the club fleet",
-  "programme.d1s3.time": "14:00",
-  "programme.d1s3.what": "Workshop and classroom tour",
-  "programme.d1s4.time": "16:00",
-  "programme.d1s4.what": "Formal session and group photograph",
-  "programme.d1s5.time": "18:00",
-  "programme.d1s5.what": "Reception in the hangar",
-  "programme.d2s1.time": "10:00",
-  "programme.d2s1.what": "Hangar opens, static display",
-  "programme.d2s2.time": "11:00",
-  "programme.d2s2.what": "Information session on PPL(A) training",
-  "programme.d2s3.time": "13:00",
-  "programme.d2s3.what": "Visiting aircraft arrive",
-  "programme.d2s4.time": "15:00",
-  "programme.d2s4.what": "Demonstration flights by historic aircraft",
-  "programme.d2s5.time": "17:30",
-  "programme.d2s5.what": "Close",
+  "flyin.eyebrow": "8 & 9 mei 2027 — Antwerp Airport",
+  "flyin.heading": "RAAC 100 Fly-in Weekend",
+  "flyin.tagline": "Oshkosh aan de Schelde? Waarom niet.",
+  "flyin.intro.p1":
+    "Een vliegclub die honderd jaar wordt, viert dat waar het allemaal om draait: tussen de vliegtuigen en in de lucht.",
+  "flyin.intro.p2":
+    "Op 8 en 9 mei 2027 willen we Antwerp Airport laten bruisen van de luchtvaart.",
+  "flyin.intro.p3":
+    "Historische vliegtuigen. Warbirds. Moderne toestellen. Piloten en vliegclubs uit binnen- en buitenland. Luchtvaartprofessionals. Demonstraties. Opleidingen. Defensie. En vooral: duizenden mensen die luchtvaart van dichtbij willen beleven.",
+  "flyin.stampe.heading": "De Stampe SV-4 keert terug naar Antwerpen",
+  "flyin.stampe.p1":
+    "Eén vliegtuig krijgt tijdens ons eeuwfeest een bijzondere plaats: de legendarische Stampe SV-4. Een Belgische klassieker met Antwerpse roots en een iconische plaats in onze luchtvaartgeschiedenis.",
+  "flyin.stampe.p2":
+    "Ons doel? Zoveel mogelijk SV-4's uit binnen- en buitenland opnieuw samenbrengen in Antwerpen — een unieke ontmoeting met levende luchtvaartgeschiedenis.",
+  "flyin.sky.heading": "Kijk omhoog!",
+  "flyin.sky.p1":
+    "Een verjaardag van een vliegclub vier je natuurlijk ook in de lucht. We willen Antwerpse formatieteams en bijzondere vliegtuigen samenbrengen voor demonstraties boven Antwerp Airport.",
+  "flyin.sky.p2":
+    "Formaties, historische toestellen en warbirds maken van de luchthaven één groot luchtvaartpodium.",
+  "flyin.behind.heading": "Ontdek wat er achter de schermen gebeurt",
+  "flyin.behind.p1":
+    "Antwerp Airport is veel meer dan lijnvluchten: het is een thuisbasis voor vliegscholen, onderhoud, General Aviation, zakenluchtvaart, ambulance-, inspectie- en fotovluchten en tal van gespecialiseerde luchtvaartactiviteiten.",
+  "flyin.behind.p2":
+    "Ontmoet piloten, techniekers, instructeurs en luchtvaartprofessionals. Ontdek hoe vliegtuigen worden onderhouden. Maak kennis met vliegopleidingen en ontdek misschien zelfs je eigen toekomst in de luchtvaart.",
+  "flyin.neighbours.heading": "Welkom, buren!",
+  "flyin.neighbours.p1":
+    "Al honderd jaar delen RAAC en Antwerp Airport hun omgeving met duizenden Antwerpenaren. Buurtbewoners en stakeholders uit de onmiddellijke omgeving nodigen we op zaterdagmorgen uit voor een feestelijke brunch waarmee we samen het verjaardagsweekend openen.",
+  "flyin.closing.heading": "Twee dagen. Eén luchthaven. Honderd jaar luchtvaart.",
+  "flyin.closing.body":
+    "Of je nu piloot bent, vliegtuigspotter, luchtvaartprofessional, buur, nieuwsgierige Antwerpenaar of gewoon iemand die bij het geluid van een vliegtuigmotor automatisch omhoog kijkt: dit weekend is voor jou.",
+  "flyin.closing.cta": "Save the date.",
+  "flyin.closing.note": "En kijk vooral af en toe omhoog.",
 
   "history.heading": "1927 – 2027",
   "history.lede": "A hundred years of the Royal Antwerp Aviation Club, briefly.",
@@ -420,12 +562,27 @@ const en: Dictionary = {
   "practical.pilots.warning":
     "Check NOTAMs before departure. The apron may close temporarily during demonstration flights.",
 
+  "finale.badge": "In voorbereiding",
+  "finale.eyebrow": "6 november 2027 — Antwerpen",
+  "finale.heading": "Finale van een bijzonder jaar",
+  "finale.tagline": "Waar anders dan in Antwerpen?",
+  "finale.p1": "RAAC en Antwerpen delen een lange geschiedenis.",
+  "finale.p2":
+    "Bij het 75-jarig bestaan werd de club officieel ontvangen door het Antwerpse stadsbestuur. Ook bij de 90ste verjaardag kreeg RAAC een bijzondere ontvangst.",
+  "finale.p3":
+    "Bij honderd jaar willen we die mooie traditie graag voortzetten. Daarom hopen we op 6 november 2027 ons feestjaar af te sluiten met een officiële ontvangst in het Antwerpse Stadhuis — een symbolisch slotmoment voor een club die al sinds 1927 nauw verbonden is met de stad en haar luchthaven.",
+  "finale.reflect":
+    "Een gelegenheid om terug te kijken. Om mensen te bedanken. Maar vooral om vooruit te kijken — want na alle festiviteiten van 2027 begint op 1 januari gewoon ons volgende hoofdstuk.",
+  "finale.disclaimer":
+    "Deze ontvangst is nog niet formeel bevestigd door Stad Antwerpen. Datum, locatie en programma kunnen nog wijzigen.",
+
   "partners.heading": "With the support of",
 
   "socials.heading": "Follow us",
   "socials.website.label": "Website",
 
-  "closing.heading": "See you in November 2027",
+  "closing.heading":
+    "100 jaar RAAC. Een eeuw geschiedenis. En we zijn nog lang niet uitgevlogen.",
   "closing.cta": "See the programme",
   "closing.prgm": "Buy tickets",
 
@@ -440,6 +597,35 @@ const en: Dictionary = {
 
   "nav.main": "Main navigation",
   "nav.sections": "Sections on this page",
+
+  "gala.meta.title": "RAAC 100 Gala — 29 mei 2027",
+  "gala.meta.description":
+    "Een stijlvolle feestavond voor leden, oud-leden en vrienden van de Royal Antwerp Aviation Club. Onderdeel van het RAAC 100 jubileumjaar.",
+  "gala.eyebrow": "29 mei 2027",
+  "gala.heading": "RAAC 100 Gala",
+  "gala.tagline": "Sommige verjaardagen verdienen nét dat beetje meer.",
+  "gala.intro.p1":
+    "Honderd jaar RAAC is er zo één. Daarom ruilen we op 29 mei de cockpit even in voor een bijzondere feestavond.",
+  "gala.intro.p2":
+    "Een avond voor leden en oud-leden, piloten, partners, sympathisanten en vrienden van de club — om herinneringen boven te halen, sterke verhalen opnieuw te vertellen en oude bekenden terug te zien.",
+  "gala.fact.body":
+    "Het eerste clubtoestel met dieselfuel: Jet A1 — de OO-VPE. Een gedurfde maar vooruitziende beslissing.",
+  "gala.intro.p3": "Maar vooral een avond om samen te vieren.",
+  "gala.people.heading": "Honderd jaar mensen",
+  "gala.people.quote":
+    "Vliegtuigen maken deel uit van onze geschiedenis. Maar mensen maakten onze geschiedenis.",
+  "gala.people.p1":
+    "Generaties piloten, instructeurs, vrijwilligers en bestuursleden hielden RAAC honderd jaar lang in de lucht. Ook wanneer er af en toe wat turbulentie was.",
+  "gala.people.p2":
+    "Dankzij hen is RAAC vandaag de oudste nog actieve vliegclub van België — en tegelijk een moderne club die volop naar de toekomst kijkt. Op 29 mei zetten we die mensen in de schijnwerpers.",
+  "gala.setting.heading": "Antwerpen vormt het decor",
+  "gala.setting.p1":
+    "Voor deze uitzonderlijke verjaardag hoort een uitzonderlijke locatie: een stijlvolle avond, een bijzondere Antwerpse setting, lekker eten, mooie ontmoetingen, herinneringen, muziek en verhalen uit honderd jaar RAAC.",
+  "gala.setting.p2": "En daarna? Dan maken we nieuwe herinneringen.",
+  "gala.closing.date": "29 mei 2027",
+  "gala.closing.cta1": "Dress up. Show up.",
+  "gala.closing.cta2": "And celebrate 100 years of flying together.",
+  "gala.back": "Terug naar raac.be",
 };
 
 export const ui = { nl, fr, en } satisfies Record<Lang, Dictionary>;

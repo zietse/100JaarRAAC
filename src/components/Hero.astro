@@ -1,20 +1,12 @@
 ---
-import Image from "astro/components/Image.astro";
-import type { Lang, UIKey } from "../i18n/ui";
+import type { Lang } from "../i18n/ui";
 import { useTranslations } from "../i18n/utils";
-import raacLogo from "./public/partners/RAAC.svg";
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-
-const facts: { label: UIKey; value: UIKey; note?: UIKey }[] = [
-  { label: "hero.date.label", value: "hero.date.value" },
-  { label: "hero.time.label", value: "hero.time.value", note: "hero.time.note" },
-  { label: "hero.place.label", value: "hero.place.value" },
-];
 ---
 
 <section id="top" class="bg-brand pb-16 text-white">
@@ -22,47 +14,35 @@ const facts: { label: UIKey; value: UIKey; note?: UIKey }[] = [
     {/* The 50/50 split. Below lg the two cells stack, because at half of a
         narrow viewport neither the title nor the crest has room to work. */}
     <div class="grid items-center gap-x-12 gap-y-10 pt-10 lg:grid-cols-2">
-      <h1 class="leading-[0.85]">
-        <span class="block text-[clamp(3rem,10vw,8rem)] font-black tracking-[-0.045em]">
-          {t("hero.title")}
-        </span>
-        <span class="mt-3 block text-[clamp(1.1rem,3.6vw,2rem)] font-semibold tracking-tight text-white/70">
-          {t("hero.subtitle")}
-        </span>
-      </h1>
+      <div>
+        <p class="text-sm font-bold tracking-[0.14em] text-accent uppercase">
+          {t("hero.years")}
+        </p>
+        <h1 class="mt-3 leading-[0.92]">
+          <span class="block text-[clamp(2.75rem,8.5vw,6.5rem)] font-black tracking-[-0.04em]">
+            {t("hero.title")}
+          </span>
+          <span class="mt-3 block text-[clamp(1.1rem,3.6vw,2rem)] font-semibold tracking-tight text-white/70">
+            {t("hero.subtitle")}
+          </span>
+        </h1>
+        <p class="mt-6 max-w-[42ch] text-lg text-white/80">{t("hero.intro")}</p>
+      </div>
 
-      {/* Decorative: the club name is already in the header and in the
-          heading above, so announcing the crest again would be noise. */}
-      <Image
-        src={raacLogo}
+      {/* Decorative: the club name is already in the header, so announcing
+          the crest again would be noise. */}
+      <img
+        src="/partners/RAAC.svg"
         alt=""
-        class="h-auto w-[clamp(14rem,30vw,26rem)]"
+        loading="eager"
+        decoding="async"
+        class="h-auto w-[clamp(14rem,30vw,26rem)] justify-self-start lg:justify-self-end"
       />
     </div>
 
-    <dl class="mt-14 grid gap-x-10 gap-y-8 border-t border-white/20 pt-8 sm:grid-cols-3">
-      {
-        facts.map((fact) => (
-          <div>
-            <dt class="text-xs font-bold tracking-[0.14em] text-accent uppercase">
-              {t(fact.label)}
-            </dt>
-            <dd class="mt-2 text-xl font-bold text-balance">
-              {t(fact.value)}
-              {fact.note && (
-                <span class="mt-1 block text-sm font-medium text-white/60">
-                  {t(fact.note)}
-                </span>
-              )}
-            </dd>
-          </div>
-        ))
-      }
-    </dl>
-
     <a
-      href="#programme"
-      class="no-print mt-12 inline-block rounded-full bg-accent px-8 py-4 text-base font-bold text-white transition-transform hover:scale-[1.02]"
+      href="#events"
+      class="no-print mt-14 inline-block rounded-full bg-accent px-8 py-4 text-base font-bold text-white transition-transform hover:scale-[1.02]"
     >
       {t("hero.cta")}
     </a>

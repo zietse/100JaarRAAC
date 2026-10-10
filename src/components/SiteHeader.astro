@@ -1,6 +1,6 @@
 ---
 import type { Lang, UIKey } from "../i18n/ui";
-import { useTranslations } from "../i18n/utils";
+import { useTranslations, localizePath } from "../i18n/utils";
 import LangSwitcher from "./LangSwitcher.astro";
 
 interface Props {
@@ -10,11 +10,14 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const nav: { href: string; key: UIKey }[] = [
-  { href: "#tickets", key: "nav.tickets" },
+  { href: "#events", key: "nav.events" },
   { href: "#about", key: "nav.about" },
   { href: "#programme", key: "nav.programme" },
+  { href: "#tickets", key: "nav.tickets" },
+  { href: localizePath("/gala/", lang), key: "nav.gala" },
   { href: "#history", key: "nav.history" },
   { href: "#practical", key: "nav.practical" },
+  { href: "#finale", key: "nav.finale" },
   { href: "#partners", key: "nav.partners" },
 ];
 ---

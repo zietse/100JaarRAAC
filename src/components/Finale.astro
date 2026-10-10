@@ -1,0 +1,41 @@
+---
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="finale" class="bg-surface-alt py-24">
+  <div class="mx-auto max-w-3xl px-6">
+    <div class="flex flex-wrap items-center gap-3">
+      <span
+        class="rounded-full bg-accent px-3 py-1 text-xs font-bold tracking-[0.1em] text-white uppercase"
+      >
+        {t("finale.badge")}
+      </span>
+      <p class="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+        {t("finale.eyebrow")}
+      </p>
+    </div>
+    <h2 class="mt-4 text-[clamp(1.75rem,5vw,3rem)]">{t("finale.heading")}</h2>
+    <p class="mt-3 text-xl font-semibold text-muted">{t("finale.tagline")}</p>
+
+    <div class="mt-8 space-y-4 text-lg">
+      <p>{t("finale.p1")}</p>
+      <p class="text-muted">{t("finale.p2")}</p>
+      <p>{t("finale.p3")}</p>
+    </div>
+
+    <p class="mt-8 text-lg font-medium text-balance">{t("finale.reflect")}</p>
+
+    <p
+      class="mt-8 max-w-[52ch] border-l-4 border-accent bg-surface py-4 pr-5 pl-5 text-sm"
+    >
+      {t("finale.disclaimer")}
+    </p>
+  </div>
+</section>

@@ -9,8 +9,10 @@ interface Props {
   tone?: "dark" | "light";
   /** The footer sits at the bottom of the page, so its menu opens upward. */
   placement?: "down" | "up";
+  /** Locale-neutral path to switch within, e.g. "/gala/". Defaults to the homepage. */
+  path?: string;
 }
-const { lang, tone = "light", placement = "down" } = Astro.props;
+const { lang, tone = "light", placement = "down", path = "/" } = Astro.props;
 const t = useTranslations(lang);
 const codes = Object.keys(languages) as Lang[];
 
@@ -45,7 +47,7 @@ const codes = Object.keys(languages) as Lang[];
       codes.map((code) => (
         <li>
           <a
-            href={localizePath("/", code)}
+            href={localizePath(path, code)}
             hreflang={code}
             lang={code}
             aria-current={code === lang ? "true" : undefined}

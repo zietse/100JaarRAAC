@@ -8,12 +8,13 @@ import Base from "./Base.astro";
 import Marquee from "../components/Marquee.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import Hero from "../components/Hero.astro";
-import Tickets from "../components/Tickets.astro";
+import EventTiles from "../components/EventTiles.astro";
 import About from "../components/About.astro";
-import Expect from "../components/Expect.astro";
 import Programme from "../components/Programme.astro";
+import Tickets from "../components/Tickets.astro";
 import Timeline from "../components/Timeline.astro";
 import Practical from "../components/Practical.astro";
+import Finale from "../components/Finale.astro";
 import Partners from "../components/Partners.astro";
 import Socials from "../components/Socials.astro";
 import Closing from "../components/Closing.astro";
@@ -31,12 +32,13 @@ const { lang } = Astro.props;
   <SiteHeader lang={lang} />
   <Hero lang={lang} />
   <main id="main">
-    <Tickets lang={lang} />
+    <EventTiles lang={lang} />
     <About lang={lang} />
-    <Expect lang={lang} />
     <Programme lang={lang} />
+    <Tickets lang={lang} />
     <Timeline lang={lang} />
     <Practical lang={lang} />
+    <Finale lang={lang} />
     <Partners lang={lang} />
     <Socials lang={lang} />
   </main>
