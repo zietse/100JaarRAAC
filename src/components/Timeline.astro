@@ -1,0 +1,346 @@
+---
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+import { timeline } from "../data/timeline";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+/* Rendered as a tablist: the rail is the tab strip, the panel below is the
+   tabpanel. Hover previews on a mouse; tap, click, arrow keys, Home and End
+   all select. Without JavaScript the first entry stays visible and the rail
+   still scrolls, so the section never becomes an empty box. */
+---
+
+<section id="history" class="bg-surface-alt py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-[clamp(1.75rem,5vw,3rem)] tabular-nums">
+      {t("history.heading")}
+    </h2>
+    <p class="mt-5 max-w-[52ch] text-xl text-muted">{t("history.lede")}</p>
+  </div>
+
+  <div class="timeline mt-14" data-timeline>
+    <div class="rail" role="tablist" aria-label={t("history.heading")}>
+      <div class="rail-inner">
+        {
+          timeline.map((entry, i) => (
+            <button
+              type="button"
+              role="tab"
+              id={`tl-tab-${i}`}
+              aria-controls={`tl-panel-${i}`}
+              aria-selected={i === 0 ? "true" : "false"}
+              tabindex={i === 0 ? 0 : -1}
+              data-index={i}
+              class:list={["stop", entry.landmark && "is-landmark"]}
+            >
+              <span class="stop-slot">
+                <span class="stop-dot" />
+              </span>
+              <span class="stop-year">{entry.year}</span>
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="panels">
+        {
+          timeline.map((entry, i) => (
+            <article
+              role="tabpanel"
+              id={`tl-panel-${i}`}
+              aria-labelledby={`tl-tab-${i}`}
+              hidden={i !== 0}
+              class="panel"
+            >
+              <p class="text-sm font-extrabold tracking-[0.14em] text-accent uppercase tabular-nums">
+                {entry.year}
+              </p>
+              <h3 class="mt-3 text-2xl font-bold text-balance">
+                {entry.title[lang]}
+              </h3>
+              <p class="mt-3 max-w-[62ch] font-archive text-lg leading-relaxed text-muted">
+                {entry.body[lang]}
+              </p>
+
+              {entry.image && (
+                <img
+                  src={entry.image}
+                  alt={entry.imageAlt ? entry.imageAlt[lang] : ""}
+                  loading="lazy"
+                  decoding="async"
+                  class="mt-5 max-h-56 w-auto border border-line"
+                />
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-6">
+    <p class="mt-10 max-w-[58ch] text-sm text-muted">{t("history.note")}</p>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    --dot-slot: 1.5rem;
+    --rail-pad-block: 1.25rem;
+  }
+
+  /* The rail bleeds to the section edges so it is obvious there is more to
+     the right, but the first stop still lines up with the 72rem container. */
+  .rail {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 2rem;
+    padding-inline: max(1.5rem, calc((100% - 72rem) / 2 + 1.5rem));
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line) transparent;
+  }
+
+  .rail::-webkit-scrollbar {
+    height: 6px;
+  }
+  .rail::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border-radius: 3px;
+  }
+
+  .rail-inner {
+    position: relative;
+    display: flex;
+    width: max-content;
+    padding-block: var(--rail-pad-block) 0.75rem;
+  }
+
+  /* The axis. Sits inside .rail-inner, which is as wide as the content, so
+     the line runs the full scrollable length rather than the visible width. */
+  .rail-inner::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: calc(var(--rail-pad-block) + var(--dot-slot) / 2);
+    border-top: 2px solid var(--color-line);
+  }
+
+  .stop {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 6.5rem;
+    padding-inline: 0.5rem;
+    scroll-snap-align: center;
+    cursor: pointer;
+    background: none;
+    border: 0;
+  }
+
+  /* Fixed-height slot so large and small dots share one centre line. */
+  .stop-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--dot-slot);
+  }
+
+  .stop-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--color-surface);
+    box-shadow: inset 0 0 0 2px var(--color-line);
+    transition:
+      background-color 120ms ease,
+      box-shadow 120ms ease,
+      transform 120ms ease;
+  }
+
+  .stop.is-landmark .stop-dot {
+    width: 1.125rem;
+    height: 1.125rem;
+    background: var(--color-accent);
+    box-shadow: inset 0 0 0 2px var(--color-accent);
+  }
+
+  .stop-year {
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-muted);
+    white-space: nowrap;
+    transition: color 120ms ease;
+  }
+
+  .stop.is-landmark .stop-year {
+    color: var(--color-body);
+  }
+
+  .stop:hover .stop-dot,
+  .stop[aria-selected="true"] .stop-dot {
+    background: var(--color-accent);
+    box-shadow: inset 0 0 0 2px var(--color-accent);
+  }
+
+  .stop[aria-selected="true"] .stop-dot {
+    transform: scale(1.35);
+    box-shadow:
+      inset 0 0 0 2px var(--color-accent),
+      0 0 0 4px color-mix(in srgb, var(--color-accent) 22%, transparent);
+  }
+
+  .stop:hover .stop-year,
+  .stop[aria-selected="true"] .stop-year {
+    color: var(--color-accent);
+  }
+
+  .stop:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Reserving height keeps the sections below from jumping as entries of
+     different lengths swap in. */
+  .panels {
+    margin-top: 2.5rem;
+    min-height: 15rem;
+  }
+
+  @media (min-width: 640px) {
+    .panels {
+      min-height: 12rem;
+    }
+  }
+
+  .panel[hidden] {
+    display: none;
+  }
+
+  .panel {
+    animation: panel-in 160ms ease-out;
+  }
+
+  @keyframes panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panel {
+      animation: none;
+    }
+    .stop-dot {
+      transition: none;
+    }
+  }
+
+  /* A horizontal scroller prints as one visible entry. Fall back to the
+     full list, which is what someone printing the page actually wants. */
+  @media print {
+    .rail {
+      display: none;
+    }
+    .panels {
+      min-height: 0;
+    }
+    .panel[hidden] {
+      display: block;
+    }
+    .panel {
+      animation: none;
+      margin-bottom: 1.25rem;
+      break-inside: avoid;
+    }
+  }
+</style>
+
+<script>
+  type Timeline = {
+    tabs: HTMLButtonElement[];
+    panels: HTMLElement[];
+    selected: number;
+  };
+
+  function select(tl: Timeline, next: number, moveFocus: boolean) {
+    if (next === tl.selected) return;
+
+    tl.tabs[tl.selected]?.setAttribute("aria-selected", "false");
+    tl.panels[tl.selected]?.setAttribute("hidden", "");
+
+    tl.tabs[next].setAttribute("aria-selected", "true");
+    tl.panels[next].removeAttribute("hidden");
+    tl.selected = next;
+
+    // Roving tabindex: one stop in the tab order, the rest reached by arrows.
+    tl.tabs.forEach((tab, i) => {
+      tab.tabIndex = i === next ? 0 : -1;
+    });
+
+    if (moveFocus) {
+      tl.tabs[next].focus();
+      tl.tabs[next].scrollIntoView({
+        block: "nearest",
+        inline: "center",
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+      });
+    }
+  }
+
+  for (const root of document.querySelectorAll<HTMLElement>("[data-timeline]")) {
+    const tabs = Array.from(
+      root.querySelectorAll<HTMLButtonElement>('[role="tab"]'),
+    );
+    const panels = Array.from(
+      root.querySelectorAll<HTMLElement>('[role="tabpanel"]'),
+    );
+    if (tabs.length === 0) continue;
+
+    const tl: Timeline = { tabs, panels, selected: 0 };
+
+    tabs.forEach((tab, i) => {
+      // Hover previews, but only for a real mouse. Touch synthesises hover
+      // events on tap and would otherwise fire twice.
+      tab.addEventListener("pointerenter", (event) => {
+        if (event.pointerType === "mouse") select(tl, i, false);
+      });
+
+      tab.addEventListener("click", () => select(tl, i, true));
+      tab.addEventListener("focus", () => select(tl, i, false));
+    });
+
+    root.addEventListener("keydown", (event) => {
+      const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+      if (!keys.includes(event.key)) return;
+
+      const last = tabs.length - 1;
+      let next = tl.selected;
+      if (event.key === "ArrowLeft") next = tl.selected === 0 ? last : tl.selected - 1;
+      if (event.key === "ArrowRight") next = tl.selected === last ? 0 : tl.selected + 1;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = last;
+
+      event.preventDefault();
+      select(tl, next, true);
+    });
+  }
+</script>

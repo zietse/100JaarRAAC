@@ -1,0 +1,197 @@
+---
+import type { Lang, UIKey } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+/* Reuses the existing nav.* keys, so this adds no translation work. */
+const sections: { href: string; key: UIKey }[] = [
+  { href: "#tickets", key: "nav.tickets" },
+  { href: "#about", key: "nav.about" },
+  { href: "#programme", key: "nav.programme" },
+  { href: "#history", key: "nav.history" },
+  { href: "#practical", key: "nav.practical" },
+  { href: "#partners", key: "nav.partners" },
+];
+---
+
+<nav class="rail no-print" aria-label={t("nav.sections")} data-section-rail>
+  <ul>
+    {
+      sections.map((section) => (
+        <li>
+          <a href={section.href} data-rail-link>
+            <span class="rail-label">{t(section.key)}</span>
+            <span class="rail-dot" aria-hidden="true" />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .rail {
+    position: fixed;
+    inset-inline-end: 1rem;
+    top: 50%;
+    z-index: 40;
+    translate: 0 -50%;
+    display: none;
+    padding: 0.6rem 0.5rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    /* Its own surface, because the rail floats over both the light bands
+       and the dark closing section. */
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px -18px rgb(0 0 0 / 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 220ms ease,
+      visibility 220ms;
+  }
+
+  /* Only where there is margin beside the 72rem container to sit in. */
+  @media (min-width: 1280px) {
+    .rail {
+      display: block;
+    }
+  }
+
+  .rail[data-visible] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 999px;
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 1px;
+  }
+
+  .rail-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-line);
+    transition:
+      background-color 140ms ease,
+      scale 140ms ease;
+  }
+
+  a:hover .rail-dot {
+    background: var(--color-muted);
+  }
+
+  a[aria-current] .rail-dot {
+    background: var(--color-accent);
+    scale: 1.45;
+  }
+
+  /* Absolutely positioned so revealing a label never changes the rail's
+     width, which would make the dots jump under the cursor. */
+  .rail-label {
+    position: absolute;
+    inset-inline-end: calc(100% + 0.35rem);
+    padding: 0.2rem 0.55rem;
+    border-radius: 0.3rem;
+    background: var(--color-body);
+    color: var(--color-surface);
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 140ms ease;
+  }
+
+  .rail:hover .rail-label,
+  a:focus-visible .rail-label {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rail,
+    .rail-dot,
+    .rail-label {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const rail = document.querySelector<HTMLElement>("[data-section-rail]");
+  const hero = document.querySelector<HTMLElement>("#top");
+
+  if (rail) {
+    const links = Array.from(
+      rail.querySelectorAll<HTMLAnchorElement>("[data-rail-link]"),
+    );
+
+    const targets = new Map<Element, HTMLAnchorElement>();
+    for (const link of links) {
+      const id = link.getAttribute("href");
+      const section = id ? document.querySelector(id) : null;
+      if (section) targets.set(section, link);
+    }
+
+    function setCurrent(link: HTMLAnchorElement) {
+      for (const other of links) other.removeAttribute("aria-current");
+      // "location" rather than "page": this marks a position within the
+      // page, not a different page.
+      link.setAttribute("aria-current", "location");
+    }
+
+    // Fires when a section crosses the middle band of the viewport, so the
+    // highlight follows what is actually being read.
+    const spy = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const link = targets.get(entry.target);
+          if (link) setCurrent(link);
+        }
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+    );
+
+    for (const section of targets.keys()) spy.observe(section);
+
+    // The rail is redundant while the hero is on screen, so it only appears
+    // once the reader has moved past it.
+    if (hero) {
+      new IntersectionObserver(
+        ([entry]) => {
+          rail.toggleAttribute("data-visible", !entry.isIntersecting);
+        },
+        { threshold: 0 },
+      ).observe(hero);
+    } else {
+      rail.setAttribute("data-visible", "");
+    }
+  }
+</script>

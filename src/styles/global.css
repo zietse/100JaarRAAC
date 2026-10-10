@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/* ===============================================================
+   BRAND PALETTE — the only place colours are defined.
+
+   These eight values are PROVISIONAL. raac.be blocks automated
+   readers, so they could not be sampled from the live site.
+   Replace them with the real values and the whole page follows;
+   nothing else in the codebase hard-codes a colour.
+
+   --color-brand        primary, used for the dark bands and headings
+   --color-brand-deep   a darker step for the footer and hover states
+   --color-accent       the one loud colour: buttons, marquee, rules
+   --color-surface      page background
+   --color-surface-alt  alternate band background
+   --color-line         hairlines and borders
+   --color-body         body text
+   --color-muted        secondary text
+   =============================================================== */
+@theme {
+  --color-brand: #0f2c4d;
+  --color-brand-deep: #081a2e;
+  --color-accent: #c8102e;
+  --color-surface: #ffffff;
+  --color-surface-alt: #eef1f5;
+  --color-line: #d5dae1;
+  --color-body: #17222e;
+  --color-muted: #586675;
+
+  /* Archivo carries the event; Source Serif is reserved for the
+     history section so the archive reads in a different voice. */
+  --font-display: "Archivo Variable", system-ui, sans-serif;
+  --font-archive: "Source Serif 4 Variable", Georgia, serif;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+  background-color: var(--color-surface);
+}
+
+body {
+  font-family: var(--font-display);
+  color: var(--color-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* The marquee is the only motion on the page, and it stops on request. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@media print {
+  html {
+    font-size: 11pt;
+  }
+  .no-print {
+    display: none !important;
+  }
+  section {
+    break-inside: avoid;
+    padding-block: 1rem !important;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}

@@ -1,0 +1,32 @@
+---
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="bg-brand py-24 text-white">
+  <div class="mx-auto max-w-6xl px-6">
+    <p class="text-[clamp(2rem,8vw,5rem)] leading-[0.95] font-black tracking-[-0.04em]">
+      {t("closing.heading")}
+    </p>
+    <div class="no-print mt-10 flex flex-wrap gap-4">
+      <a
+        href="#programme"
+        class="inline-block rounded-full bg-accent px-8 py-4 text-base font-bold text-white transition-transform hover:scale-[1.02]"
+      >
+        {t("closing.cta")}
+      </a>
+      <a
+        href="#tickets"
+        class="inline-block rounded-full bg-accent px-8 py-4 text-base font-bold text-white transition-transform hover:scale-[1.02]"
+      >
+        {t("closing.prgm")}
+      </a>
+    </div>
+  </div>
+</section>

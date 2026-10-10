@@ -1,0 +1,46 @@
+---
+/**
+ * The whole one-pager. The three locale routes each render this with a
+ * different `lang`, so there is one place to add or reorder a section.
+ */
+import type { Lang } from "../i18n/ui";
+import Base from "./Base.astro";
+import Marquee from "../components/Marquee.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import Hero from "../components/Hero.astro";
+import Tickets from "../components/Tickets.astro";
+import About from "../components/About.astro";
+import Expect from "../components/Expect.astro";
+import Programme from "../components/Programme.astro";
+import Timeline from "../components/Timeline.astro";
+import Practical from "../components/Practical.astro";
+import Partners from "../components/Partners.astro";
+import Socials from "../components/Socials.astro";
+import Closing from "../components/Closing.astro";
+import Footer from "../components/Footer.astro";
+import SectionRail from "../components/Sectionrail.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<Base lang={lang}>
+  <Marquee lang={lang} />
+  <SiteHeader lang={lang} />
+  <Hero lang={lang} />
+  <main id="main">
+    <Tickets lang={lang} />
+    <About lang={lang} />
+    <Expect lang={lang} />
+    <Programme lang={lang} />
+    <Timeline lang={lang} />
+    <Practical lang={lang} />
+    <Partners lang={lang} />
+    <Socials lang={lang} />
+  </main>
+  <Closing lang={lang} />
+  <Footer lang={lang} />
+  <SectionRail lang={lang} />
+</Base>

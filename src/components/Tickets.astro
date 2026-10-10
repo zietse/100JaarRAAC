@@ -1,0 +1,142 @@
+---
+import type { Lang, UIKey } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+type Tier = { label: UIKey; price: UIKey };
+const tiers: Tier[] = [
+  { label: "tickets.tier.adult.label", price: "tickets.tier.adult.price" },
+  { label: "tickets.tier.child.label", price: "tickets.tier.child.price" },
+  { label: "tickets.tier.infant.label", price: "tickets.tier.infant.price" },
+];
+
+// [PLACEHOLDER] — point this at the real ticketing service before launch.
+const TICKET_URL = "https://tickets.example.com/raac100";
+---
+
+<section id="tickets" class="bg-surface-alt py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-[clamp(1.75rem,5vw,3rem)]">{t("tickets.heading")}</h2>
+    <p class="mt-5 max-w-[52ch] text-xl text-muted">{t("tickets.lede")}</p>
+
+    <div class="ticket mt-12">
+      <div class="ticket-stub">
+        <span class="text-xs font-bold tracking-[0.14em] text-white/70 uppercase">
+          {t("tickets.stub.label")}
+        </span>
+        <span class="text-3xl font-black tracking-[-0.03em]">
+          {t("hero.title")}
+        </span>
+        <span class="text-sm font-semibold text-white/80">
+          {t("marquee.b")}
+        </span>
+      </div>
+
+      <div class="ticket-main">
+        <dl>
+          {
+            tiers.map((tier) => (
+              <div class="flex items-baseline justify-between gap-6 border-t border-line py-4 first:border-t-0">
+                <dt class="font-medium">{t(tier.label)}</dt>
+                <dd class="text-xl font-bold whitespace-nowrap tabular-nums">
+                  {t(tier.price)}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+        <p class="mt-5 max-w-[48ch] text-sm text-muted">{t("tickets.note")}</p>
+      </div>
+    </div>
+
+    <a
+      href={TICKET_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="no-print mt-10 inline-block rounded-full bg-accent px-8 py-4 text-base font-bold text-white transition-transform hover:scale-[1.02]"
+    >
+      {t("tickets.cta")}
+    </a>
+  </div>
+</section>
+
+<style>
+  /* A perforated event ticket: a stub column, a dashed tear line, and two
+     "punched" semicircles cut into the top and bottom edges at the seam.
+     The notches are plain circles painted in the section's own background,
+     clipped by the card's rounded corners — no masks, so it renders the
+     same everywhere. */
+  .ticket {
+    position: relative;
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background: var(--color-surface);
+    box-shadow: 0 24px 60px -30px rgb(0 0 0 / 0.35);
+  }
+
+  .ticket-stub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 2rem 1rem;
+    background: var(--color-brand);
+    color: white;
+    text-align: center;
+  }
+
+  .ticket-stub::after {
+    content: "";
+    position: absolute;
+    inset-block: 1.5rem;
+    inset-inline-start: 9rem;
+    border-inline-start: 2px dashed rgb(255 255 255 / 0.35);
+  }
+
+  .ticket-main {
+    padding: 2rem 2.25rem;
+  }
+
+  .ticket::before,
+  .ticket::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 9rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: var(--color-surface-alt);
+  }
+
+  .ticket::before {
+    top: 0;
+    translate: -50% -50%;
+  }
+
+  .ticket::after {
+    bottom: 0;
+    translate: -50% 50%;
+  }
+
+  @media (max-width: 26rem) {
+    .ticket {
+      grid-template-columns: 6.5rem 1fr;
+    }
+    .ticket-stub::after,
+    .ticket::before,
+    .ticket::after {
+      inset-inline-start: 6.5rem;
+    }
+    .ticket-main {
+      padding-inline: 1.25rem;
+    }
+  }
+</style>

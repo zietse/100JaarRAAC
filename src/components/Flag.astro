@@ -1,0 +1,74 @@
+---
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  code: Lang;
+  class?: string;
+}
+const { code, class: className = "" } = Astro.props;
+
+/* The Union Jack needs a clipPath, and this component renders more than once
+   per page, so the id has to be unique per instance or the duplicate ids are
+   invalid markup. Generated at build time, not in the browser. */
+const uid = `flag-${Math.random().toString(36).slice(2, 8)}`;
+
+const base = `block h-[0.85em] w-[1.2em] shrink-0 rounded-[1px] ${className}`;
+---
+
+{
+  code === "nl" && (
+    <svg
+      class={base}
+      viewBox="0 0 9 6"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect width="9" height="6" fill="#21468b" />
+      <rect width="9" height="4" fill="#fff" />
+      <rect width="9" height="2" fill="#ae1c28" />
+    </svg>
+  )
+}
+
+{
+  code === "fr" && (
+    <svg
+      class={base}
+      viewBox="0 0 9 6"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect width="9" height="6" fill="#ed2939" />
+      <rect width="6" height="6" fill="#fff" />
+      <rect width="3" height="6" fill="#002395" />
+    </svg>
+  )
+}
+
+{
+  code === "en" && (
+    <svg
+      class={base}
+      viewBox="0 0 60 30"
+      role="presentation"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <clipPath id={uid}>
+        <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
+      </clipPath>
+      <rect width="60" height="30" fill="#00247d" />
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+      <path
+        d="M0,0 L60,30 M60,0 L0,30"
+        clip-path={`url(#${uid})`}
+        stroke="#cf142b"
+        stroke-width="4"
+      />
+      <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+      <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" stroke-width="6" />
+    </svg>
+  )
+}

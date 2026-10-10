@@ -1,0 +1,48 @@
+---
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+import LangSwitcher from "./LangSwitcher.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<footer class="bg-brand-deep py-16 text-white">
+  <div class="mx-auto grid max-w-6xl gap-12 px-6 sm:grid-cols-2">
+    <div>
+      <h2 class="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+        {t("footer.contact")}
+      </h2>
+      <address class="mt-4 space-y-1 not-italic text-white/70">
+        <p>Royal Antwerp Aviation Club</p>
+        <p>Luchthavenlei 1, 2100 Deurne</p>
+        <p>
+          <a
+            href="mailto:info@raac.be"
+            class="underline decoration-white/30 underline-offset-4 hover:decoration-accent"
+          >
+            info@raac.be
+          </a>
+        </p>
+      </address>
+    </div>
+
+    <div>
+      <h2 class="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+        {t("footer.archive")}
+      </h2>
+      <p class="mt-4 max-w-[46ch] text-sm text-white/70">
+        {t("footer.archive.body")}
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="mx-auto mt-14 flex max-w-6xl flex-wrap items-baseline justify-between gap-4 border-t border-white/15 px-6 pt-6"
+  >
+    <p class="text-sm text-white/60">{t("footer.colophon")}</p>
+  </div>
+</footer>

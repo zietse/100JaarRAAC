@@ -1,0 +1,159 @@
+---
+import type { Lang, UIKey } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+type AccessIcon = "car" | "transit" | "bike" | "foot";
+
+const access: { heading: UIKey; body: UIKey; icon: AccessIcon }[] = [
+  {
+    heading: "practical.access.car.heading",
+    body: "practical.access.car.body",
+    icon: "car",
+  },
+  {
+    heading: "practical.access.transit.heading",
+    body: "practical.access.transit.body",
+    icon: "transit",
+  },
+  {
+    heading: "practical.access.bike.heading",
+    body: "practical.access.bike.body",
+    icon: "bike",
+  },
+  {
+    heading: "practical.access.foot.heading",
+    body: "practical.access.foot.body",
+    icon: "foot",
+  },
+];
+
+/* Monoline glyphs in the same stroke style as the icons elsewhere on the
+   page (fill: none, stroke: currentColor). viewBox is 0 0 24 24 for all
+   four so they share one wrapper. */
+const icons: Record<AccessIcon, string> = {
+  car: `<path d="M3 17 L3.7 12.8 C3.9 11.7 4.9 11 6 11 L8.5 11 L10 9 L15 9 L17 11 L18.5 11 C19.5 11 20.4 11.7 20.6 12.8 L21.3 17" />
+    <path d="M2 17 L22 17" />
+    <circle cx="7" cy="17.3" r="1.8" />
+    <circle cx="17" cy="17.3" r="1.8" />`,
+  transit: `<rect x="4.5" y="3.5" width="15" height="13" rx="5" />
+    <path d="M4.5 10 L19.5 10" />
+    <path d="M9.3 3.5 L9.3 10 M14.7 3.5 L14.7 10" />
+    <path d="M12 3.5 L12 1.5" />
+    <circle cx="8" cy="17" r="1.5" />
+    <circle cx="16" cy="17" r="1.5" />`,
+  bike: `<path d="M6 17.5 L9 9 L12 17.5 L16 9 L18 17.5" />
+    <path d="M9 9 L16 9" />
+    <circle cx="6" cy="17.5" r="3" />
+    <circle cx="18" cy="17.5" r="3" />`,
+  foot: `<circle cx="12" cy="4.3" r="1.8" fill="currentColor" stroke="none" />
+    <path d="M12 7 L12 13 M12 9 L8.5 11.5 M12 9 L16 7.5 M12 13 L9 20 M12 13 L15.5 19" />`,
+};
+
+// [PLACEHOLDER] — confirm the real "Slim naar Antwerpen" URL before launch.
+const SLIM_NAAR_ANTWERPEN_URL = "https://www.slimnaarantwerpen.be/nl/routeplanner?mapMode=mobility&selectedMode=default&selectedToggles=smart-links,train-stations,park-and-ride&departureDate=Wed%20Mar%2004%202026%2021:49:56%20GMT%2B0100%20(Central%20European%20Standard%20Time)&departureTime=21:55&departureType=ROUTEPLANNER.LEAVE_NOW&destination=%257B%2522label%2522%253A%2522Luchthavenlei%2520(Mortsel%252C%2520Belgi%25C3%25AB)%2522%252C%2522lng%2522%253A4.46439%252C%2522lat%2522%253A51.181363%257D";
+
+const rules: UIKey[] = [
+  "practical.rules.1",
+  "practical.rules.2",
+  "practical.rules.3",
+  "practical.rules.4",
+];
+---
+
+<section id="practical" class="bg-surface py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-[clamp(1.75rem,5vw,3rem)]">{t("practical.heading")}</h2>
+
+    <h3 class="mt-14 text-xs font-bold tracking-[0.14em] text-accent uppercase">
+      {t("practical.access.heading")}
+    </h3>
+    <a
+      href={SLIM_NAAR_ANTWERPEN_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-4 inline-block"
+    >
+      <img
+        src="/partners/slimNaarAntwerpen.svg"
+        alt="Slim naar Antwerpen"
+        loading="lazy"
+        decoding="async"
+        class="h-8 w-auto"
+      />
+    </a>
+    <div class="mt-6 grid gap-x-14 gap-y-10 sm:grid-cols-2">
+      {
+        access.map((block) => (
+          <div class="border-t border-line pt-5">
+            <h4 class="flex items-center gap-3 text-lg font-bold">
+              <svg
+                class="w-6 shrink-0 text-accent"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                set:html={icons[block.icon]}
+              />
+              {t(block.heading)}
+            </h4>
+            <p class="mt-2 max-w-[52ch] text-muted">{t(block.body)}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-20 grid gap-x-14 gap-y-14 sm:grid-cols-2">
+      <div>
+        <h3 class="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+          {t("practical.rules.heading")}
+        </h3>
+        <p class="mt-5 font-medium">{t("practical.rules.lede")}</p>
+        <ul class="mt-4">
+          {
+            rules.map((key) => (
+              <li class="flex items-start gap-4 border-t border-line py-3">
+                <svg
+                  class="mt-1.5 w-4 shrink-0 text-accent"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 3 L13 13 M13 3 L3 13" />
+                </svg>
+                <span class="text-muted">{t(key)}</span>
+              </li>
+            ))
+          }
+          <li class="border-t border-line"></li>
+        </ul>
+        <p class="mt-5 max-w-[52ch] text-sm text-muted">
+          {t("practical.rules.note")}
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+          {t("practical.pilots.heading")}
+        </h3>
+        <p class="mt-5 max-w-[52ch] text-muted">{t("practical.pilots.body")}</p>
+        <p
+          class="mt-6 max-w-[52ch] border-l-4 border-accent bg-surface-alt py-4 pr-5 pl-5 text-sm"
+        >
+          {t("practical.pilots.warning")}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

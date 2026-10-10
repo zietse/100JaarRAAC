@@ -1,0 +1,50 @@
+---
+import type { Lang, UIKey } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+import LangSwitcher from "./LangSwitcher.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const nav: { href: string; key: UIKey }[] = [
+  { href: "#tickets", key: "nav.tickets" },
+  { href: "#about", key: "nav.about" },
+  { href: "#programme", key: "nav.programme" },
+  { href: "#history", key: "nav.history" },
+  { href: "#practical", key: "nav.practical" },
+  { href: "#partners", key: "nav.partners" },
+];
+---
+
+<header class="bg-brand text-white">
+  <div
+    class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-10 gap-y-4 px-6 py-5"
+  >
+    <a href="#top" class="text-lg font-extrabold tracking-tight">
+      Royal Antwerp Aviation Club
+    </a>
+
+    <div class="flex flex-wrap items-center gap-x-8 gap-y-3">
+      <nav class="no-print" aria-label={t("nav.main")}>
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+          {
+            nav.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-white/75 transition-colors hover:text-white"
+                >
+                  {t(item.key)}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <LangSwitcher lang={lang} tone="dark" />
+    </div>
+  </div>
+</header>

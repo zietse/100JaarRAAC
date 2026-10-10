@@ -1,0 +1,77 @@
+---
+import type { Lang, UIKey } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const items: UIKey[] = ["marquee.a", "marquee.b", "marquee.c", "marquee.d"];
+/* Three passes so the strip stays filled on a wide screen while the
+   animation loops on a one-third translate. */
+const passes = [0, 1, 2];
+---
+
+<div class="marquee no-print bg-accent text-white" aria-hidden="true">
+  <div class="marquee-track">
+    {
+      passes.map(() =>
+        items.map((key) => (
+          <span class="marquee-item">
+            {t(key)}
+            <svg
+              class="marquee-mark"
+              viewBox="0 0 12 12"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M6 0 L7.5 4.5 L12 6 L7.5 7.5 L6 12 L4.5 7.5 L0 6 L4.5 4.5 Z" />
+            </svg>
+          </span>
+        )),
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    padding-block: 0.55rem;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 38s linear infinite;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-inline-end: 1.25rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .marquee-mark {
+    width: 0.6rem;
+    height: 0.6rem;
+    opacity: 0.7;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-33.333%);
+    }
+  }
+</style>

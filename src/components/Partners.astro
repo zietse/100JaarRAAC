@@ -1,0 +1,180 @@
+---
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const partnerLogo = (file: string) => `/partners/${file}`;
+
+/**
+ * Drop each partner's logo into /public/partners/ and set `logo` to just
+ * the filename (e.g. "foo.svg") — `partnerLogo()` above adds the /partners/
+ * prefix. Cells without a logo fall back to the name in type, so the wall
+ * still reads while the artwork is being chased down. `url`, when set,
+ * makes the cell a link to the partner's site.
+ */
+const partners: { name: string; logo?: string; url?: string }[] = [
+  { name: "Slim naar Antwerpen", logo: "slimNaarAntwerpen.svg" },
+  { name: "Raac", logo: "RAAC.svg" },
+  { name: "DeurneA", logo: "Deurne-1.svg" },
+  { name: "AntwerpAirport", logo: "AntwerpAirport.svg" },
+];
+
+/* Same technique as the header Marquee: three identical passes, looping
+   on a one-third translate so the strip never shows a seam. Only the
+   first pass is real content — the other two exist purely to fill the
+   loop and are hidden from assistive tech and keyboard tab order. */
+const passes = [0, 1, 2];
+---
+
+<section id="partners" class="bg-surface-alt py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+      {t("partners.heading")}
+    </h2>
+  </div>
+
+  <div class="partners-carousel mt-10" aria-label={t("partners.heading")}>
+    <div class="partners-track">
+      {
+        passes.map((pass) => (
+          <ul class="partners-pass" aria-hidden={pass > 0 ? "true" : undefined}>
+            {partners.map((partner) => (
+              <li class="partners-cell">
+                {partner.url ? (
+                  <a
+                    href={partner.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    tabindex={pass > 0 ? -1 : undefined}
+                  >
+                    {partner.logo ? (
+                      <img
+                        src={partnerLogo(partner.logo)}
+                        alt={partner.name}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <span>{partner.name}</span>
+                    )}
+                  </a>
+                ) : partner.logo ? (
+                  <img
+                    src={partnerLogo(partner.logo)}
+                    alt={partner.name}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <span>{partner.name}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .partners-carousel {
+    overflow: hidden;
+  }
+
+  .partners-track {
+    display: flex;
+    width: max-content;
+    animation: partners-scroll 20s linear infinite;
+  }
+
+  /* Stopping on hover/focus is what makes the logos actually clickable. */
+  .partners-carousel:hover .partners-track,
+  .partners-carousel:focus-within .partners-track {
+    animation-play-state: paused;
+  }
+
+  .partners-pass {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .partners-cell {
+    display: flex;
+    min-height: 7rem;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 2.5rem;
+    border-inline-end: 1px solid var(--color-line);
+  }
+
+  .partners-cell a {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .partners-cell a:focus-visible {
+    outline-offset: 6px;
+  }
+
+  .partners-cell img {
+    max-height: 3rem;
+    width: auto;
+  }
+
+  .partners-cell span {
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-muted);
+  }
+
+  @keyframes partners-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  /* Same rule as the header marquee: real content, no motion, and
+     nothing lost — just the first (non-duplicated) pass, scrollable
+     by hand if it doesn't fit. */
+  @media (prefers-reduced-motion: reduce) {
+    .partners-carousel {
+      overflow-x: auto;
+    }
+    .partners-track {
+      animation: none;
+    }
+    .partners-pass:not(:first-child) {
+      display: none;
+    }
+  }
+
+  @media print {
+    .partners-carousel {
+      overflow: visible;
+    }
+    .partners-track {
+      width: 100%;
+      animation: none;
+    }
+    .partners-pass {
+      flex-wrap: wrap;
+    }
+    .partners-pass:not(:first-child) {
+      display: none;
+    }
+  }
+</style>

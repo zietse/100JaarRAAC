@@ -1,0 +1,86 @@
+---
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+/* Same monoline-SVG approach as the "getting here" icons in Practical.astro:
+   hand-drawn, viewBox 0 0 24 24, stroke: currentColor. No icon library, so
+   no new dependency for three glyphs. */
+const icons = {
+  instagram: `<rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+    <circle cx="12" cy="12" r="4.2" />
+    <circle cx="16.3" cy="7.7" r="0.9" fill="currentColor" stroke="none" />`,
+  facebook: `<circle cx="12" cy="12" r="8.5" />
+    <g transform="translate(12 12) scale(0.5) translate(-12 -12)">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </g>`,
+  website: `<circle cx="12" cy="12" r="8.5" />
+    <path d="M3.5 12 H20.5" />
+    <path d="M12 3.5 C7.5 3.5 7.5 20.5 12 20.5 C16.5 20.5 16.5 3.5 12 3.5" />`,
+};
+
+/* [PLACEHOLDER] — point these at the club's real profiles before launch. */
+const socials: { key: keyof typeof icons; label: string; url: string }[] = [
+  { key: "instagram", label: "Instagram", url: "https://www.instagram.com/royalantwerpaviationclub/" },
+  { key: "facebook", label: "Facebook", url: "https://www.facebook.com/royalantwerpaviationclub" },
+  { key: "website", label: t("socials.website.label"), url: "https://raac.be" },
+];
+---
+
+<section id="socials" class="bg-surface py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+      {t("socials.heading")}
+    </h2>
+
+    <ul class="mt-10 flex flex-wrap items-start justify-between gap-x-8 gap-y-10">
+      {
+        socials.map((social) => (
+          <li>
+            <a
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link flex flex-col items-center gap-4"
+            >
+              <svg
+                class="w-16 text-brand sm:w-20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                set:html={icons[social.key]}
+              />
+              <span class="text-base font-bold">{social.label}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .social-link {
+    transition: transform 140ms ease;
+  }
+
+  .social-link:hover,
+  .social-link:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .social-link {
+      transition: none;
+    }
+  }
+</style>
