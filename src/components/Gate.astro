@@ -1,0 +1,78 @@
+---
+/**
+ * Access-code screen shown until a visitor enters the right code.
+ *
+ * This is a privacy screen, not security: it keeps casual visitors and
+ * search engines out, but the page content still ships in the HTML.
+ * Only a salted SHA-256 hash of the code is embedded, never the code.
+ */
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+  hash: string;
+}
+const { lang, hash } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div id="gate" class="fixed inset-0 z-[100] flex items-center justify-center bg-brand px-6 text-white">
+  <form id="gate-form" class="w-full max-w-sm">
+    <p class="text-xs font-bold tracking-[0.14em] text-accent uppercase">RAAC 100</p>
+    <h1 class="mt-3 text-2xl font-black">{t("gate.title")}</h1>
+    <p class="mt-3 text-white/75">{t("gate.body")}</p>
+
+    <label for="gate-input" class="mt-8 block text-sm font-semibold">
+      {t("gate.label")}
+    </label>
+    <input
+      id="gate-input"
+      type="password"
+      autocomplete="current-password"
+      required
+      class="mt-2 w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-white focus:outline-none focus-visible:border-accent"
+    />
+    <p id="gate-error" class="mt-3 text-sm text-accent" role="alert" hidden>
+      {t("gate.error")}
+    </p>
+
+    <button
+      type="submit"
+      class="mt-6 w-full rounded-full bg-accent px-8 py-3 font-bold text-white transition-transform hover:scale-[1.02]"
+    >
+      {t("gate.submit")}
+    </button>
+  </form>
+</div>
+
+<script is:inline define:vars={{ hash }}>
+  const KEY = "raac-gate";
+  const form = document.getElementById("gate-form");
+  const input = document.getElementById("gate-input");
+  const error = document.getElementById("gate-error");
+
+  async function sha256(text) {
+    const bytes = new TextEncoder().encode(text);
+    const digest = await crypto.subtle.digest("SHA-256", bytes);
+    return Array.from(new Uint8Array(digest))
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  if (document.documentElement.classList.contains("gated")) input.focus();
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const attempt = await sha256("raac-100:" + input.value);
+    if (attempt === hash) {
+      try {
+        localStorage.setItem(KEY, hash);
+      } catch {}
+      document.documentElement.classList.remove("gated");
+    } else {
+      error.hidden = false;
+      input.select();
+    }
+  });
+</script>

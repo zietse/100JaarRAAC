@@ -184,6 +184,12 @@ const nl = {
 
   "lang.label": "Taal",
 
+  "gate.title": "Deze site is nog niet publiek",
+  "gate.body": "Voer de toegangscode in die je ontvangen hebt.",
+  "gate.label": "Toegangscode",
+  "gate.submit": "Toegang",
+  "gate.error": "Die code klopt niet. Probeer het opnieuw.",
+
   "nav.main": "Hoofdnavigatie",
   "nav.sections": "Secties op deze pagina",
 
@@ -391,6 +397,12 @@ const fr: Dictionary = {
   "footer.colophon": "Réalisé par les bénévoles du club.",
 
   "lang.label": "Langue",
+
+  "gate.title": "Ce site n'est pas encore public",
+  "gate.body": "Saisissez le code d'accès que vous avez reçu.",
+  "gate.label": "Code d'accès",
+  "gate.submit": "Entrer",
+  "gate.error": "Ce code est incorrect. Veuillez réessayer.",
   "nav.main": "Navigation principale",
   "nav.sections": "Sections de cette page",
 
@@ -590,6 +602,12 @@ const en: Dictionary = {
   "footer.colophon": "Built by volunteers of the club.",
 
   "lang.label": "Language",
+
+  "gate.title": "This site isn't public yet",
+  "gate.body": "Enter the access code you were given.",
+  "gate.label": "Access code",
+  "gate.submit": "Enter",
+  "gate.error": "That code isn't right. Please try again.",
 
   "nav.main": "Main navigation",
   "nav.sections": "Sections on this page",

@@ -5,6 +5,7 @@ import "../styles/global.css";
 
 import { languages, type Lang } from "../i18n/ui";
 import { useTranslations, localizePath, withBase } from "../i18n/utils";
+import Gate from "../components/Gate.astro";
 
 interface Props {
   lang: Lang;
@@ -22,6 +23,18 @@ const pageDescription = description ?? t("meta.description");
 
 const canonical = new URL(localizePath(path, lang), Astro.site);
 const ogImage = new URL(withBase("/og.jpg"), Astro.site);
+
+/* Access gate: on when SITE_TOKEN is set at build time (a GitHub Actions
+   secret, or a local .env file). Only a salted hash reaches the page. */
+const siteToken: string | undefined = import.meta.env.SITE_TOKEN;
+let gateHash = "";
+if (siteToken) {
+  const bytes = new TextEncoder().encode(`raac-100:${siteToken}`);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  gateHash = Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
 ---
 
 <!doctype html>
@@ -58,9 +71,33 @@ const ogImage = new URL(withBase("/og.jpg"), Astro.site);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#16303f" />
     <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+
+    {
+      gateHash && (
+        <>
+          <meta name="robots" content="noindex, nofollow" />
+          {/* Runs before first paint so the content never flashes. */}
+          <script is:inline define:vars={{ gateHash }}>
+            try {
+              if (localStorage.getItem("raac-gate") !== gateHash) {
+                document.documentElement.classList.add("gated");
+              }
+            } catch {
+              document.documentElement.classList.add("gated");
+            }
+          </script>
+          <style is:inline>
+            #gate { display: none !important; }
+            html.gated #gate { display: flex !important; }
+            html.gated body > *:not(#gate) { display: none !important; }
+          </style>
+        </>
+      )
+    }
   </head>
 
   <body class="bg-paper">
+    {gateHash && <Gate lang={lang} hash={gateHash} />}
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"

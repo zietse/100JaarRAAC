@@ -24,6 +24,10 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: 24
+        env:
+          # Access code for the site gate. Set it under Settings → Secrets and
+          # variables → Actions. Leave the secret unset to publish without a gate.
+          SITE_TOKEN: ${{ secrets.SITE_TOKEN }}
 
   deploy:
     needs: build
