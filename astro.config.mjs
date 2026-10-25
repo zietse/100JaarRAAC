@@ -3,8 +3,10 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  // Used for canonical + hreflang tags. Change before going live.
-  site: "https://raac.be",
+  // Hosted on GitHub Pages under /100JaarRAAC/. When moving to a custom
+  // domain (e.g. raac.be), set `site` to that domain and remove `base`.
+  site: "https://zietse.github.io",
+  base: "/100JaarRAAC",
 
   i18n: {
     defaultLocale: "nl",

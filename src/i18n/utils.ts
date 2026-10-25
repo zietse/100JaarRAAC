@@ -15,12 +15,23 @@ export function getLangFromUrl(url: URL): Lang {
 }
 
 /**
- * Turns a locale-neutral path into a localised one.
- * localizePath("/", "fr") -> "/fr/"   localizePath("/", "nl") -> "/"
+ * Prefixes a root-relative path with the site's `base` (from
+ * astro.config.mjs), so links and assets work when the site is served
+ * from a subfolder such as GitHub Pages' /100JaarRAAC/.
+ */
+export function withBase(path: string): string {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const clean = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${clean}`;
+}
+
+/**
+ * Turns a locale-neutral path into a localised, base-prefixed one.
+ * localizePath("/", "fr") -> "<base>/fr/"   localizePath("/", "nl") -> "<base>/"
  */
 export function localizePath(path: string, lang: Lang): string {
   const clean = path.startsWith("/") ? path : `/${path}`;
-  return lang === defaultLang ? clean : `/${lang}${clean}`;
+  return withBase(lang === defaultLang ? clean : `/${lang}${clean}`);
 }
 
 /** A value that exists in every language. Used for content data. */

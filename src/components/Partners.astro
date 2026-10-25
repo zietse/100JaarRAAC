@@ -1,13 +1,13 @@
 ---
 import type { Lang } from "../i18n/ui";
-import { useTranslations } from "../i18n/utils";
+import { useTranslations, withBase } from "../i18n/utils";
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const partnerLogo = (file: string) => `/partners/${file}`;
+const partnerLogo = (file: string) => withBase(`/partners/${file}`);
 
 /**
  * Drop each partner's logo into /public/partners/ and set `logo` to just

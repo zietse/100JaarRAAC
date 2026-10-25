@@ -1,6 +1,6 @@
 ---
 import type { Lang } from "../i18n/ui";
-import { useTranslations } from "../i18n/utils";
+import { useTranslations, withBase } from "../i18n/utils";
 
 interface Props {
   lang: Lang;
@@ -32,7 +32,7 @@ const t = useTranslations(lang);
       {/* Decorative: the club name is already in the header, so announcing
           the crest again would be noise. */}
       <img
-        src="/partners/RAAC.svg"
+        src={withBase("/partners/RAAC.svg")}
         alt=""
         loading="eager"
         decoding="async"
