@@ -1,6 +1,6 @@
 ---
 import type { Lang, UIKey } from "../i18n/ui";
-import { useTranslations } from "../i18n/utils";
+import { useTranslations, withBase } from "../i18n/utils";
 
 interface Props {
   lang: Lang;
@@ -21,8 +21,20 @@ const TICKET_URL = "https://tickets.example.com/raac100";
 
 <section id="tickets" class="bg-surface-alt py-24">
   <div class="mx-auto max-w-6xl px-6">
-    <h2 class="text-[clamp(1.75rem,5vw,3rem)]">{t("tickets.heading")}</h2>
-    <p class="mt-5 max-w-[52ch] text-xl text-muted">{t("tickets.lede")}</p>
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
+      <div>
+        <h2 class="text-[clamp(1.75rem,5vw,3rem)]">{t("tickets.heading")}</h2>
+        <p class="mt-5 max-w-[52ch] text-xl text-muted">{t("tickets.lede")}</p>
+      </div>
+      {/* Decorative: OO-VPE. Kept at most ~300px wide; the file is only 354px. */}
+      <img
+        src={withBase("/resources/Robin_VPE.png")}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        class="h-auto w-56 rotate-3 sm:w-72"
+      />
+    </div>
 
     <div class="ticket mt-12">
       <div class="ticket-stub">

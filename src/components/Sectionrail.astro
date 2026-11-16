@@ -8,9 +8,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-/* Reuses the existing nav.* keys, so this adds no translation work.
-   Same-page anchors only — the Gala link in the header goes to a
-   separate page, so it has no "current section" to track here. */
+/* Reuses the existing nav.* keys, so this adds no translation work. */
 const sections: { href: string; key: UIKey }[] = [
   { href: "#events", key: "nav.events" },
   { href: "#about", key: "nav.about" },

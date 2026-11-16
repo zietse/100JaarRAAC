@@ -8,7 +8,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const items: UIKey[] = ["marquee.a", "marquee.b", "marquee.c", "marquee.d"];
+const items: UIKey[] = ["marquee.a", "marquee.b", "marquee.d"];
 /* Three passes so the strip stays filled on a wide screen while the
    animation loops on a one-third translate. */
 const passes = [0, 1, 2];

@@ -1,13 +1,30 @@
 import type { Localized } from "../i18n/utils";
 
+export interface TimelineImage {
+  /** Path from /public/, e.g. "/resources/archive/history1.jpg". */
+  src: string;
+  /** Short description of the photo, per language, for screen readers. */
+  alt?: Localized;
+}
+
 export interface TimelineEntry {
   /** Displayed as-is. Use a span ("1940–1945") where a single year lies. */
   year: string;
   title: Localized;
   body: Localized;
-  /** Optional file in /public/archive/. Leave undefined for text-only entries. */
+  /**
+   * Optional photo shown next to the text. Put the file in /public/ and give
+   * its path from there, e.g. "/resources/archive/history1.jpg" for
+   * public/resources/archive/history1.jpg. Leave out for text-only entries.
+   */
   image?: string;
+  /** Short description of the photo, per language, for screen readers. */
   imageAlt?: Localized;
+  /**
+   * Two photos side by side instead of one. Use this *instead of* `image`;
+   * both are shown at the same size, cropped to the same shape.
+   */
+  images?: TimelineImage[];
   /** Visual emphasis. Keep it to three or four across the whole list. */
   landmark?: boolean;
 }
@@ -30,24 +47,37 @@ export const timeline: TimelineEntry[] = [
       en: "The Antwerp Aviation Club is founded",
     },
     body: {
-      nl: "Op 3 november richt Pierre Schellekens de club op. Jan Olieslagers, grondlegger van de luchthaven van Antwerpen, wordt de eerste voorzitter.",
-      fr: "Le 3 novembre, Pierre Schellekens fonde le club. Jan Olieslagers, à l'origine de l'aéroport d'Anvers, en devient le premier président.",
-      en: "On 3 November, Pierre Schellekens founds the club. Jan Olieslagers, the man behind Antwerp's airport, becomes its first chairman.",
+      nl: "Bij de oprichting van de Antwerp Aviation Club speelden Pierre-Henri Schellekens en Jan Olieslagers een centrale rol. Olieslagers werd de eerste voorzitter. De club is sinds haar pioniersjaren sterk verbonden met Deurne en Antwerpen.",
+      fr: "Pierre-Henri Schellekens et Jan Olieslagers ont joué un rôle central dans la fondation de l'Antwerp Aviation Club. Olieslagers en est devenu le premier président. Depuis ses années pionnières, le club est étroitement lié à Deurne et à Anvers.",
+      en: "Pierre-Henri Schellekens and Jan Olieslagers played a central role in founding the Antwerp Aviation Club. Olieslagers became its first chairman. Since its pioneering years, the club has been closely tied to Deurne and Antwerp.",
     },
+    image: "/resources/archive/history1.jpg",
   },
   {
-    // [VERIFIED] statutes in the Belgisch Staatsblad, 1928;
-    // 42 pilots and 45 supporting members at the first anniversary.
-    year: "1928",
+    year: "1930",
     title: {
-      nl: "Statuten in het Belgisch Staatsblad",
-      fr: "Statuts au Moniteur belge",
-      en: "Statutes in the Belgian official gazette",
+      nl: "Luchthavengebouw van Deurne icoon van moderne Antwerpse luchtvaart",
+      fr: "L'aérogare de Deurne, icône de l'aviation anversoise moderne",
+      en: "Deurne's airport building, an icon of modern Antwerp aviation",
     },
     body: {
-      nl: "Op de eerste verjaardag telt de club al 42 piloten en 45 beschermende leden.",
-      fr: "Au premier anniversaire, le club compte déjà 42 pilotes et 45 membres protecteurs.",
-      en: "By its first anniversary the club already counts 42 pilots and 45 supporting members.",
+      nl: "Het luchthavengebouw van Deurne, ontworpen door Stanislas Jasinski in de stijl van de nieuwe zakelijkheid, werd een icoon van de moderne Antwerpse luchtvaart.",
+      fr: "Conçue par Stanislas Jasinski dans le style de la Nouvelle Objectivité, l'aérogare de Deurne est devenue une icône de l'aviation anversoise moderne.",
+      en: "Designed by Stanislas Jasinski in the New Objectivity style, Deurne's airport building became an icon of modern Antwerp aviation.",
+    },
+    image: "/resources/archive/history2.jpg",
+  },
+  {
+    year: "1931-1940",
+    title: {
+      nl: "Beginperiode vliegclub",
+      fr: "Les débuts du club",
+      en: "The club's early years",
+    },
+    body: {
+      nl: "In de pioniersjaren beschikte de Antwerp Aviation Club over eigen vliegtuigen. Archiefbeelden tonen het vliegen als nieuw avontuur, nog lang vóór moderne cockpitinstrumenten.",
+      fr: "Dans ses années pionnières, l'Antwerp Aviation Club disposait de ses propres avions. Les images d'archives montrent le vol comme une aventure nouvelle, bien avant les instruments de cockpit modernes.",
+      en: "In its pioneering years, the Antwerp Aviation Club had its own aircraft. Archive images show flying as a new adventure, long before modern cockpit instruments.",
     },
   },
   {
@@ -80,6 +110,24 @@ export const timeline: TimelineEntry[] = [
     },
   },
   {
+    year: "1955",
+    landmark: true,
+    title: {
+      nl: "Vliegopleidingen",
+      fr: "Formations au pilotage",
+      en: "Flight training",
+    },
+    body: {
+      nl: "Leren vliegen werd een blijvende opdracht van de club. De oude vliegschoolbeelden vormen een brug naar de opleiding van hedendaagse privé-piloten. Al in de beginjaren kwamen vliegtuigbezitters, instructeurs en leerlingen op Deurne samen.",
+      fr: "",
+      en: "",
+    },
+    images: [
+    { src: "/resources/archive/history3.jpg" },
+    { src: "/resources/archive/history4.jpg" },
+    ],
+  },
+  {
     // [VERIFIED] fleet of ten aircraft; 1000 flying hours passed for the
     // first time in 1959.
     year: "1959",
@@ -108,20 +156,20 @@ export const timeline: TimelineEntry[] = [
       en: "PLACEHOLDER — when exactly did the model aircraft section start, and who started it?",
     },
   },
-  {
-    // [PLACEHOLDER]
-    year: "1990s",
-    title: {
-      nl: "De RAAC-echo",
-      fr: "Le RAAC-echo",
-      en: "The RAAC-echo",
-    },
-    body: {
-      nl: "PLACEHOLDER — het driemaandelijkse clubtijdschrift. Sinds wanneer verschijnt het, en wie maakte de eerste nummers?",
-      fr: "PLACEHOLDER — la revue trimestrielle du club. Depuis quand paraît-elle, et qui a réalisé les premiers numéros ?",
-      en: "PLACEHOLDER — the quarterly club magazine. How long has it been running, and who made the first issues?",
-    },
-  },
+  // {
+  //   // [PLACEHOLDER]
+  //   year: "1990s",
+  //   title: {
+  //     nl: "De RAAC-echo",
+  //     fr: "Le RAAC-echo",
+  //     en: "The RAAC-echo",
+  //   },
+  //   body: {
+  //     nl: "PLACEHOLDER — het driemaandelijkse clubtijdschrift. Sinds wanneer verschijnt het, en wie maakte de eerste nummers?",
+  //     fr: "PLACEHOLDER — la revue trimestrielle du club. Depuis quand paraît-elle, et qui a réalisé les premiers numéros ?",
+  //     en: "PLACEHOLDER — the quarterly club magazine. How long has it been running, and who made the first issues?",
+  //   },
+  // },
   {
     // [VERIFIED] DTO BE.DTO.115, PPL(A) training, SEP class rating,
     // Night VFR and sailplane towing ratings.

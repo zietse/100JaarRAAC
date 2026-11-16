@@ -29,12 +29,10 @@ const nl = {
   "nav.practical": "Praktisch",
   "nav.finale": "Finale",
   "nav.partners": "Partners",
-  "nav.gala": "Gala",
   "nav.skip": "Spring naar de inhoud",
 
   "marquee.a": "RAAC 100",
   "marquee.b": "8 & 9 mei 2027",
-  "marquee.c": "29 mei 2027",
   "marquee.d": "6 november 2027",
 
   "hero.title": "100 jaar RAAC",
@@ -46,17 +44,12 @@ const nl = {
 
   "events.heading": "2027 wordt een feestjaar",
   "events.intro":
-    "We brengen piloten, vliegtuigen, leden en oud-leden, luchtvaartprofessionals, buurtbewoners, partners én iedereen met een hart voor luchtvaart samen. Met drie bijzondere momenten:",
+    "We brengen piloten, vliegtuigen, leden en oud-leden, luchtvaartprofessionals, buurtbewoners, partners én iedereen met een hart voor luchtvaart samen. Met twee bijzondere momenten:",
   "events.flyin.date": "8 & 9 mei 2027",
   "events.flyin.title": "RAAC 100 Fly-in Weekend",
   "events.flyin.body":
     "Twee dagen vliegtuigen, historie, demonstraties en General Aviation op Antwerp Airport.",
   "events.flyin.cta": "Ontdek het weekend",
-  "events.gala.date": "29 mei 2027",
-  "events.gala.title": "RAAC 100 Gala",
-  "events.gala.body":
-    "Een stijlvolle feestavond voor iedereen die deel uitmaakt van het verhaal van RAAC.",
-  "events.gala.cta": "Ontdek het gala",
   "events.finale.badge": "In voorbereiding",
   "events.finale.date": "6 november 2027",
   "events.finale.title": "Finale van ons feestjaar",
@@ -192,40 +185,6 @@ const nl = {
 
   "nav.main": "Hoofdnavigatie",
   "nav.sections": "Secties op deze pagina",
-
-  /* ===============================================================
-     GALA PAGE — the one standalone page, linked from the "events"
-     tiles on the homepage. Everything else about 2027 lives on the
-     one-pager itself.
-     =============================================================== */
-  "gala.meta.title": "RAAC 100 Gala — 29 mei 2027",
-  "gala.meta.description":
-    "Een stijlvolle feestavond voor leden, oud-leden en vrienden van de Royal Antwerp Aviation Club. Onderdeel van het RAAC 100 jubileumjaar.",
-  "gala.eyebrow": "29 mei 2027",
-  "gala.heading": "RAAC 100 Gala",
-  "gala.tagline": "Sommige verjaardagen verdienen nét dat beetje meer.",
-  "gala.intro.p1":
-    "Honderd jaar RAAC is er zo één. Daarom ruilen we op 29 mei de cockpit even in voor een bijzondere feestavond.",
-  "gala.intro.p2":
-    "Een avond voor leden en oud-leden, piloten, partners, sympathisanten en vrienden van de club — om herinneringen boven te halen, sterke verhalen opnieuw te vertellen en oude bekenden terug te zien.",
-  "gala.fact.body":
-    "Het eerste clubtoestel met dieselfuel: Jet A1 — de OO-VPE. Een gedurfde maar vooruitziende beslissing.",
-  "gala.intro.p3": "Maar vooral een avond om samen te vieren.",
-  "gala.people.heading": "Honderd jaar mensen",
-  "gala.people.quote":
-    "Vliegtuigen maken deel uit van onze geschiedenis. Maar mensen maakten onze geschiedenis.",
-  "gala.people.p1":
-    "Generaties piloten, instructeurs, vrijwilligers en bestuursleden hielden RAAC honderd jaar lang in de lucht. Ook wanneer er af en toe wat turbulentie was.",
-  "gala.people.p2":
-    "Dankzij hen is RAAC vandaag de oudste nog actieve vliegclub van België — en tegelijk een moderne club die volop naar de toekomst kijkt. Op 29 mei zetten we die mensen in de schijnwerpers.",
-  "gala.setting.heading": "Antwerpen vormt het decor",
-  "gala.setting.p1":
-    "Voor deze uitzonderlijke verjaardag hoort een uitzonderlijke locatie: een stijlvolle avond, een bijzondere Antwerpse setting, lekker eten, mooie ontmoetingen, herinneringen, muziek en verhalen uit honderd jaar RAAC.",
-  "gala.setting.p2": "En daarna? Dan maken we nieuwe herinneringen.",
-  "gala.closing.date": "29 mei 2027",
-  "gala.closing.cta1": "Dress up. Show up.",
-  "gala.closing.cta2": "And celebrate 100 years of flying together.",
-  "gala.back": "Terug naar raac.be"
 } as const;
 
 export type UIKey = keyof typeof nl;
@@ -244,12 +203,10 @@ const fr: Dictionary = {
   "nav.practical": "Infos pratiques",
   "nav.finale": "Finale",
   "nav.partners": "Partenaires",
-  "nav.gala": "Gala",
   "nav.skip": "Aller au contenu",
 
   "marquee.a": "RAAC 100",
   "marquee.b": "8 & 9 mai 2027",
-  "marquee.c": "29 mai 2027",
   "marquee.d": "6 novembre 2027",
 
   "hero.title": "100 ans de RAAC",
@@ -261,17 +218,12 @@ const fr: Dictionary = {
 
   "events.heading": "2027, une année de fête",
   "events.intro":
-    "Nous réunissons pilotes, avions, membres et anciens membres, professionnels de l'aviation, riverains, partenaires et tous ceux qui ont l'aviation dans le cœur. Avec trois moments forts :",
+    "Nous réunissons pilotes, avions, membres et anciens membres, professionnels de l'aviation, riverains, partenaires et tous ceux qui ont l'aviation dans le cœur. Avec deux moments forts :",
   "events.flyin.date": "8 & 9 mai 2027",
   "events.flyin.title": "RAAC 100 Fly-in Weekend",
   "events.flyin.body":
     "Deux jours d'avions, d'histoire, de démonstrations et d'aviation générale à l'aéroport d'Anvers.",
   "events.flyin.cta": "Découvrir le week-end",
-  "events.gala.date": "29 mai 2027",
-  "events.gala.title": "RAAC 100 Gala",
-  "events.gala.body":
-    "Une soirée de gala élégante pour tous ceux qui font partie de l'histoire de RAAC.",
-  "events.gala.cta": "Découvrir le gala",
   "events.finale.badge": "En préparation",
   "events.finale.date": "6 novembre 2027",
   "events.finale.title": "La finale de notre année de fête",
@@ -406,34 +358,6 @@ const fr: Dictionary = {
   "nav.main": "Navigation principale",
   "nav.sections": "Sections de cette page",
 
-  "gala.meta.title": "RAAC 100 Gala — 29 mai 2027",
-  "gala.meta.description":
-    "Une soirée de gala élégante pour les membres, anciens membres et amis du Royal Antwerp Aviation Club. Un moment fort de l'année du centenaire RAAC 100.",
-  "gala.eyebrow": "29 mai 2027",
-  "gala.heading": "RAAC 100 Gala",
-  "gala.tagline": "Certains anniversaires méritent un petit quelque chose en plus.",
-  "gala.intro.p1":
-    "Les cent ans de RAAC en font partie. C'est pourquoi, le 29 mai, nous échangeons le temps d'une soirée le cockpit contre une fête exceptionnelle.",
-  "gala.intro.p2":
-    "Une soirée pour les membres et anciens membres, les pilotes, les partenaires, les sympathisants et les amis du club — pour raviver des souvenirs, raconter à nouveau de belles histoires et retrouver de vieilles connaissances.",
-  "gala.fact.body":
-    "Le premier avion du club au carburant diesel : le Jet A1 — l'OO-VPE. Une décision audacieuse mais visionnaire.",
-  "gala.intro.p3": "Mais surtout, une soirée pour célébrer ensemble.",
-  "gala.people.heading": "Cent ans d'hommes et de femmes",
-  "gala.people.quote":
-    "Les avions font partie de notre histoire. Mais ce sont les gens qui l'ont écrite.",
-  "gala.people.p1":
-    "Des générations de pilotes, d'instructeurs, de bénévoles et d'administrateurs ont maintenu RAAC dans les airs pendant cent ans. Même quand il y a eu, de temps à autre, quelques turbulences.",
-  "gala.people.p2":
-    "Grâce à eux, RAAC est aujourd'hui le plus ancien club d'aviation encore actif de Belgique — et en même temps un club moderne résolument tourné vers l'avenir. Le 29 mai, nous mettons ces personnes à l'honneur.",
-  "gala.setting.heading": "Anvers, le décor",
-  "gala.setting.p1":
-    "Cet anniversaire exceptionnel mérite un lieu exceptionnel : une soirée élégante, un cadre anversois particulier, une belle table, de belles rencontres, des souvenirs, de la musique et des histoires de cent ans de RAAC.",
-  "gala.setting.p2": "Et ensuite ? Nous créerons de nouveaux souvenirs.",
-  "gala.closing.date": "29 mai 2027",
-  "gala.closing.cta1": "Dress up. Show up.",
-  "gala.closing.cta2": "And celebrate 100 years of flying together.",
-  "gala.back": "Retour à raac.be",
 };
 
 const en: Dictionary = {
@@ -449,12 +373,10 @@ const en: Dictionary = {
   "nav.practical": "Practical",
   "nav.finale": "Finale",
   "nav.partners": "Partners",
-  "nav.gala": "Gala",
   "nav.skip": "Skip to content",
 
   "marquee.a": "RAAC 100",
   "marquee.b": "8 & 9 May 2027",
-  "marquee.c": "29 May 2027",
   "marquee.d": "6 November 2027",
 
   "hero.title": "100 years of RAAC",
@@ -466,17 +388,12 @@ const en: Dictionary = {
 
   "events.heading": "2027 is a year to celebrate",
   "events.intro":
-    "We're bringing together pilots, aircraft, members and former members, aviation professionals, neighbours, partners, and everyone with aviation in their heart. With three special moments:",
+    "We're bringing together pilots, aircraft, members and former members, aviation professionals, neighbours, partners, and everyone with aviation in their heart. With two special moments:",
   "events.flyin.date": "8 & 9 May 2027",
   "events.flyin.title": "RAAC 100 Fly-in Weekend",
   "events.flyin.body":
     "Two days of aircraft, history, demonstrations and General Aviation at Antwerp Airport.",
   "events.flyin.cta": "Discover the weekend",
-  "events.gala.date": "29 May 2027",
-  "events.gala.title": "RAAC 100 Gala",
-  "events.gala.body":
-    "A stylish evening of celebration for everyone who is part of RAAC's story.",
-  "events.gala.cta": "Discover the gala",
   "events.finale.badge": "In preparation",
   "events.finale.date": "6 November 2027",
   "events.finale.title": "The finale of our celebration year",
@@ -612,34 +529,6 @@ const en: Dictionary = {
   "nav.main": "Main navigation",
   "nav.sections": "Sections on this page",
 
-  "gala.meta.title": "RAAC 100 Gala — 29 May 2027",
-  "gala.meta.description":
-    "A stylish evening of celebration for members, former members and friends of the Royal Antwerp Aviation Club. Part of the RAAC 100 anniversary year.",
-  "gala.eyebrow": "29 May 2027",
-  "gala.heading": "RAAC 100 Gala",
-  "gala.tagline": "Some birthdays deserve just that little bit more.",
-  "gala.intro.p1":
-    "A hundred years of RAAC is one of them. That's why, on 29 May, we're trading the cockpit for one evening for a special celebration.",
-  "gala.intro.p2":
-    "An evening for members and former members, pilots, partners, supporters and friends of the club — to bring back memories, retell good stories, and see old familiar faces again.",
-  "gala.fact.body":
-    "The club's first aircraft to run on diesel fuel: Jet A1 — the OO-VPE. A bold but far-sighted decision.",
-  "gala.intro.p3": "But above all, an evening to celebrate together.",
-  "gala.people.heading": "A hundred years of people",
-  "gala.people.quote":
-    "Aircraft are part of our history. But people made our history.",
-  "gala.people.p1":
-    "Generations of pilots, instructors, volunteers and board members kept RAAC flying for a hundred years. Even when there was the occasional bit of turbulence.",
-  "gala.people.p2":
-    "Thanks to them, RAAC is today the oldest still-active flying club in Belgium — and, at the same time, a modern club looking firmly to the future. On 29 May, we put those people in the spotlight.",
-  "gala.setting.heading": "Antwerp sets the scene",
-  "gala.setting.p1":
-    "An exceptional anniversary deserves an exceptional setting: a stylish evening, a distinctive Antwerp backdrop, good food, good company, memories, music and stories from a hundred years of RAAC.",
-  "gala.setting.p2": "And afterwards? We'll make new memories.",
-  "gala.closing.date": "29 May 2027",
-  "gala.closing.cta1": "Dress up. Show up.",
-  "gala.closing.cta2": "And celebrate 100 years of flying together.",
-  "gala.back": "Back to raac.be",
 };
 
 export const ui = { nl, fr, en } satisfies Record<Lang, Dictionary>;

@@ -1,13 +1,19 @@
 ---
 import type { Lang } from "../i18n/ui";
-import { useTranslations } from "../i18n/utils";
-import { timeline } from "../data/timeline";
+import { useTranslations, withBase } from "../i18n/utils";
+import { timeline, type TimelineEntry, type TimelineImage } from "../data/timeline";
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+/* One list per entry, whether it was given as `image` or `images`. */
+function photosOf(entry: TimelineEntry): TimelineImage[] {
+  if (entry.images?.length) return entry.images;
+  return entry.image ? [{ src: entry.image, alt: entry.imageAlt }] : [];
+}
 
 /* Rendered as a tablist: the rail is the tab strip, the panel below is the
    tabpanel. Hover previews on a mouse; tap, click, arrow keys, Home and End
@@ -51,35 +57,61 @@ const t = useTranslations(lang);
     <div class="mx-auto max-w-6xl px-6">
       <div class="panels">
         {
-          timeline.map((entry, i) => (
+          timeline.map((entry, i) => {
+            const photos = photosOf(entry);
+            return (
             <article
               role="tabpanel"
               id={`tl-panel-${i}`}
               aria-labelledby={`tl-tab-${i}`}
               hidden={i !== 0}
-              class="panel"
+              class:list={[
+                "panel",
+                photos.length > 0 && "grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start",
+              ]}
             >
-              <p class="text-sm font-extrabold tracking-[0.14em] text-accent uppercase tabular-nums">
-                {entry.year}
-              </p>
-              <h3 class="mt-3 text-2xl font-bold text-balance">
-                {entry.title[lang]}
-              </h3>
-              <p class="mt-3 max-w-[62ch] font-archive text-lg leading-relaxed text-muted">
-                {entry.body[lang]}
-              </p>
+              <div>
+                <p class="text-sm font-extrabold tracking-[0.14em] text-accent uppercase tabular-nums">
+                  {entry.year}
+                </p>
+                <h3 class="mt-3 text-2xl font-bold text-balance">
+                  {entry.title[lang]}
+                </h3>
+                <p class="mt-3 max-w-[62ch] font-archive text-lg leading-relaxed text-muted">
+                  {entry.body[lang]}
+                </p>
+              </div>
 
-              {entry.image && (
-                <img
-                  src={entry.image}
-                  alt={entry.imageAlt ? entry.imageAlt[lang] : ""}
-                  loading="lazy"
-                  decoding="async"
-                  class="mt-5 max-h-56 w-auto border border-line"
-                />
+              {photos.length === 1 && (
+                <figure>
+                  <img
+                    src={withBase(photos[0].src)}
+                    alt={photos[0].alt ? photos[0].alt[lang] : ""}
+                    loading="lazy"
+                    decoding="async"
+                    class="h-auto max-h-80 w-auto max-w-full rounded-lg border border-line lg:max-w-[24rem]"
+                  />
+                </figure>
+              )}
+
+              {/* Two photos: a pair that together takes roughly the space of
+                  one, both cropped to 4:3 so their edges line up. */}
+              {photos.length > 1 && (
+                <figure class="grid w-full max-w-[36rem] grid-cols-2 gap-3 lg:w-[36rem]">
+                  {photos.slice(0, 2).map((photo) => (
+                    <img
+                      src={withBase(photo.src)}
+                      alt={photo.alt ? photo.alt[lang] : ""}
+                      loading="lazy"
+                      decoding="async"
+                      class="aspect-[4/3] h-auto w-full rounded-lg border border-line object-cover"
+                    />
+                  ))}
+                </figure>
               )}
             </article>
-          ))
+            );
+          })
         }
       </div>
     </div>
