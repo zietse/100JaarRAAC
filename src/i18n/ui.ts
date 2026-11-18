@@ -26,6 +26,7 @@ const nl = {
   "nav.tickets": "Tickets",
   "nav.programme": "Fly-in Weekend",
   "nav.history": "1927–2027",
+  "nav.fleet": "De vloot",
   "nav.practical": "Praktisch",
   "nav.finale": "Finale",
   "nav.partners": "Partners",
@@ -109,10 +110,39 @@ const nl = {
   "flyin.closing.cta": "Save the date.",
   "flyin.closing.note": "En kijk vooral af en toe omhoog.",
 
-  "history.heading": "1927 – 2027",
-  "history.lede": "Honderd jaar Royal Antwerp Aviation Club, kort samengevat.",
+  "stories.eyebrow": "Honderd jaar. Dezelfde vliegclub.",
+  "stories.heading": "Wat begon bij de doopvont, groeide met een stad mee",
+  "stories.intro":
+    "In november 1927 werd de Royal Antwerp Aviation Club boven de doopvont gehouden. Wat begon als een vereniging van gepassioneerde luchtvaartpioniers, groeide uit tot een vaste waarde in de Antwerpse luchtvaartwereld. Maar honderd jaar RAAC is meer dan het verhaal van één club: sinds de oprichting is ze verbonden met de luchthaven van Deurne en met de stad eromheen. Een eeuw RAAC is dus ook een eeuw Antwerpse luchtvaartgeschiedenis.",
+  "stories.club.body":
+    "Pioniers, toestellen, leden en voorzitters: van de eerste RSV in 1928 tot de Diamond DA40 NG van vandaag.",
+  "stories.club.link": "Naar de vloot",
+  "stories.airport.body":
+    "Van een afgedankte spoorwagon als aérogare tot Antwerp Airport: een eeuw groei, oorlog, heropbouw en vernieuwing.",
+  "stories.airport.link": "Enkel de luchthaven",
+  "stories.city.body":
+    "De Boerentoren, de Kennedytunnel, het MAS: de gebeurtenissen die Antwerpen vormden terwijl de club vloog.",
+  "stories.city.link": "Enkel de stad",
+
+  "track.club": "De club",
+  "track.airport": "De luchthaven",
+  "track.city": "De stad",
+
+  "history.eyebrow": "1927 – 2027",
+  "history.heading": "Eén tijdlijn, drie sporen",
+  "history.lede":
+    "Alle gebeurtenissen op één lijn, in chronologische volgorde. Kies zelf welk verhaal je wil volgen.",
+  "history.filter.label": "Filter de tijdlijn",
+  "history.filter.all": "Alles",
+  "history.verify": "Nog te verifiëren in het clubarchief.",
   "history.note":
     "Samengesteld uit het clubarchief, de RAAC-echo en de verhalen van leden. Ontbreekt er iets, of klopt er iets niet? Laat het ons weten — we vullen aan.",
+
+  "fleet.heading": "De clubvloot door de jaren heen",
+  "fleet.lede":
+    "Elk toestel vertelt iets over zijn tijd: houten tweedekkers, Amerikaanse hoogdekkers, Tsjechische lesvliegtuigen, Cessna’s als schoolbank en vandaag dieselmotoren en glass cockpits.",
+  "fleet.note":
+    "Aankoopjaren en omschrijvingen volgens het narratief van de werkgroep. Welk beeld bij welk toestel hoort, en de exacte registraties, worden nog met het clubarchief afgetoetst.",
 
   "practical.heading": "Praktisch",
   "practical.access.heading": "Bereikbaarheid",
@@ -200,6 +230,7 @@ const fr: Dictionary = {
   "nav.tickets": "Billets",
   "nav.programme": "Fly-in Weekend",
   "nav.history": "1927–2027",
+  "nav.fleet": "La flotte",
   "nav.practical": "Infos pratiques",
   "nav.finale": "Finale",
   "nav.partners": "Partenaires",
@@ -282,10 +313,39 @@ const fr: Dictionary = {
   "flyin.closing.cta": "Save the date.",
   "flyin.closing.note": "Et surtout, pensez à lever les yeux de temps en temps.",
 
-  "history.heading": "1927 – 2027",
-  "history.lede": "Cent ans de Royal Antwerp Aviation Club, en bref.",
+  "stories.eyebrow": "Cent ans. Le même aéroclub.",
+  "stories.heading": "Né en 1927, il a grandi avec une ville",
+  "stories.intro":
+    "En novembre 1927, le Royal Antwerp Aviation Club voyait le jour. Ce qui a commencé comme une association de pionniers passionnés d'aviation est devenu une valeur sûre du monde aéronautique anversois. Mais cent ans de RAAC, c'est plus que l'histoire d'un club : depuis sa fondation, il est lié à l'aéroport de Deurne et à la ville qui l'entoure. Un siècle de RAAC, c'est donc aussi un siècle d'histoire de l'aviation anversoise.",
+  "stories.club.body":
+    "Pionniers, appareils, membres et présidents : du premier RSV en 1928 au Diamond DA40 NG d'aujourd'hui.",
+  "stories.club.link": "Vers la flotte",
+  "stories.airport.body":
+    "D'un wagon désaffecté servant d'aérogare à Antwerp Airport : un siècle de croissance, de guerre, de reconstruction et de renouveau.",
+  "stories.airport.link": "Seulement l'aéroport",
+  "stories.city.body":
+    "La Boerentoren, le tunnel Kennedy, le MAS : les événements qui ont façonné Anvers pendant que le club volait.",
+  "stories.city.link": "Seulement la ville",
+
+  "track.club": "Le club",
+  "track.airport": "L'aéroport",
+  "track.city": "La ville",
+
+  "history.eyebrow": "1927 – 2027",
+  "history.heading": "Une frise, trois histoires",
+  "history.lede":
+    "Tous les événements sur une seule ligne, dans l'ordre chronologique. À vous de choisir l'histoire à suivre.",
+  "history.filter.label": "Filtrer la frise",
+  "history.filter.all": "Tout",
+  "history.verify": "À vérifier dans les archives du club.",
   "history.note":
     "Établi à partir des archives du club, du RAAC-echo et des récits des membres. Un oubli, une erreur ? Faites-le nous savoir — nous complétons.",
+
+  "fleet.heading": "La flotte du club au fil des ans",
+  "fleet.lede":
+    "Chaque appareil raconte quelque chose de son époque : biplans en bois, monoplans américains à aile haute, avions-écoles tchèques, Cessna en guise de bancs d'école et, aujourd'hui, moteurs diesel et glass cockpits.",
+  "fleet.note":
+    "Années d'achat et descriptions d'après le récit du groupe de travail. L'attribution des photos et les immatriculations exactes sont encore vérifiées dans les archives du club.",
 
   "practical.heading": "Infos pratiques",
   "practical.access.heading": "Comment venir",
@@ -370,6 +430,7 @@ const en: Dictionary = {
   "nav.tickets": "Tickets",
   "nav.programme": "Fly-in Weekend",
   "nav.history": "1927–2027",
+  "nav.fleet": "The fleet",
   "nav.practical": "Practical",
   "nav.finale": "Finale",
   "nav.partners": "Partners",
@@ -452,10 +513,39 @@ const en: Dictionary = {
   "flyin.closing.cta": "Save the date.",
   "flyin.closing.note": "And don't forget to look up now and then.",
 
-  "history.heading": "1927 – 2027",
-  "history.lede": "A hundred years of the Royal Antwerp Aviation Club, briefly.",
+  "stories.eyebrow": "A hundred years. The same flying club.",
+  "stories.heading": "Born in 1927, grown up alongside a city",
+  "stories.intro":
+    "In November 1927 the Royal Antwerp Aviation Club was born. What began as an association of passionate aviation pioneers grew into a fixture of Antwerp's aviation world. But a hundred years of RAAC is more than the story of one club: since its founding it has been bound up with Deurne airport and the city around it. A century of RAAC is also a century of Antwerp aviation history.",
+  "stories.club.body":
+    "Pioneers, aircraft, members and chairmen: from the first RSV in 1928 to today's Diamond DA40 NG.",
+  "stories.club.link": "To the fleet",
+  "stories.airport.body":
+    "From a disused railway carriage serving as the terminal to Antwerp Airport: a century of growth, war, rebuilding and renewal.",
+  "stories.airport.link": "Just the airport",
+  "stories.city.body":
+    "The Boerentoren, the Kennedy Tunnel, the MAS: the events that shaped Antwerp while the club flew.",
+  "stories.city.link": "Just the city",
+
+  "track.club": "The club",
+  "track.airport": "The airport",
+  "track.city": "The city",
+
+  "history.eyebrow": "1927 – 2027",
+  "history.heading": "One timeline, three stories",
+  "history.lede":
+    "Every event on one line, in chronological order. Choose which story you want to follow.",
+  "history.filter.label": "Filter the timeline",
+  "history.filter.all": "All",
+  "history.verify": "Still to be checked against the club archive.",
   "history.note":
     "Assembled from the club archive, the RAAC-echo and members' own accounts. Something missing, or something wrong? Tell us and we will add it.",
+
+  "fleet.heading": "The club fleet through the years",
+  "fleet.lede":
+    "Every aircraft says something about its time: wooden biplanes, American high-wings, Czech trainers, Cessnas as the classroom, and today diesel engines and glass cockpits.",
+  "fleet.note":
+    "Purchase years and descriptions follow the working group's narrative. Which photo belongs to which aircraft, and the exact registrations, are still being checked against the club archive.",
 
   "practical.heading": "Practical",
   "practical.access.heading": "Getting here",

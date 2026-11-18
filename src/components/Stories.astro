@@ -1,0 +1,115 @@
+---
+import type { Lang, UIKey } from "../i18n/ui";
+import type { Track } from "../data/timeline";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+/* The three stories the history section tells. The club card leads to the
+   fleet; the other two jump to the timeline with that track filtered
+   (the filter itself lives in Timeline.astro). */
+const stories: {
+  track: Track;
+  body: UIKey;
+  link: UIKey;
+  href: string;
+  filter?: Track;
+}[] = [
+  { track: "club", body: "stories.club.body", link: "stories.club.link", href: "#fleet" },
+  {
+    track: "airport",
+    body: "stories.airport.body",
+    link: "stories.airport.link",
+    href: "#timeline",
+    filter: "airport",
+  },
+  {
+    track: "city",
+    body: "stories.city.body",
+    link: "stories.city.link",
+    href: "#timeline",
+    filter: "city",
+  },
+];
+---
+
+<section id="history" class="bg-surface py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <p class="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+      {t("stories.eyebrow")}
+    </p>
+    <h2 class="mt-3 max-w-[22ch] text-[clamp(1.75rem,5vw,3rem)]">
+      {t("stories.heading")}
+    </h2>
+    <p class="mt-6 max-w-[46rem] text-lg text-muted">{t("stories.intro")}</p>
+
+    <ol class="mt-12 grid list-none gap-6 p-0 md:grid-cols-3">
+      {
+        stories.map((story, i) => (
+          <li class="pillar" data-story={story.track}>
+            <span class="pillar-n tabular-nums" aria-hidden="true">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3 class="mt-2 text-2xl font-extrabold">
+              {t(`track.${story.track}` as UIKey)}
+            </h3>
+            <p class="mt-2 text-muted">{t(story.body)}</p>
+            <a
+              href={story.href}
+              data-timeline-filter={story.filter}
+              class="pillar-link mt-4 inline-block text-sm font-bold"
+            >
+              {t(story.link)} <span aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.8rem;
+    border: 1px solid var(--color-line);
+    border-top: 6px solid var(--c);
+    border-radius: 18px;
+    background: var(--color-surface);
+  }
+
+  .pillar[data-story="club"] {
+    --c: var(--color-brand);
+  }
+  .pillar[data-story="airport"] {
+    --c: var(--color-accent);
+  }
+  .pillar[data-story="city"] {
+    --c: var(--color-city);
+  }
+
+  .pillar-n {
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--c);
+  }
+
+  /* Pushes the link to the bottom so all three line up. */
+  .pillar-link {
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--c);
+    text-decoration: none;
+  }
+
+  .pillar-link:hover {
+    text-decoration: underline;
+  }
+</style>

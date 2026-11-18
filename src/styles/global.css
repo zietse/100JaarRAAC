@@ -27,6 +27,11 @@
   --color-body: #17222e;
   --color-muted: #586675;
 
+  /* The third story in the history section ("the city"). Club uses
+     brand and airport uses accent. A darkened goldenrod, so white tag
+     text on it stays readable. */
+  --color-city: #8a6500;
+
   /* Archivo carries the event; Source Serif is reserved for the
      history section so the archive reads in a different voice. */
   --font-display: "Archivo Variable", system-ui, sans-serif;

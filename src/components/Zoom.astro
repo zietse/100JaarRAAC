@@ -1,0 +1,103 @@
+---
+/* One shared overlay that shows any `img[data-zoom]` large, with its alt
+   text as caption. With a mouse it follows hover: pointing at a photo opens
+   it and moving off closes it, and the overlay lets the pointer through so
+   that works. On touch a tap opens it and a second tap anywhere closes it.
+   Keyboard focus opens it too, and Escape closes it. */
+---
+
+<div class="zoom no-print" data-zoom-overlay aria-hidden="true">
+  <figure>
+    <img alt="" />
+    <figcaption></figcaption>
+  </figure>
+</div>
+
+<style>
+  .zoom {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 3vh 3vw;
+    background: rgb(8 26 46 / 0.72);
+    pointer-events: none;
+  }
+
+  .zoom[data-open] {
+    display: flex;
+  }
+
+  @media (hover: none) {
+    .zoom[data-open] {
+      pointer-events: auto;
+      cursor: zoom-out;
+    }
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 94vw;
+    max-height: 94vh;
+    margin: 0;
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 94vw;
+    max-height: 86vh;
+    object-fit: contain;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 20px 70px rgb(0 0 0 / 0.55);
+  }
+
+  figcaption {
+    margin-top: 0.7rem;
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  figcaption:empty {
+    display: none;
+  }
+</style>
+
+<script>
+  const overlay = document.querySelector<HTMLElement>("[data-zoom-overlay]");
+  const big = overlay?.querySelector("img");
+  const caption = overlay?.querySelector("figcaption");
+
+  if (overlay && big && caption) {
+    const canHover = window.matchMedia("(hover: hover)");
+
+    const show = (img: HTMLImageElement) => {
+      big.src = img.currentSrc || img.src;
+      caption.textContent = img.alt;
+      overlay.setAttribute("data-open", "");
+    };
+    const hide = () => overlay.removeAttribute("data-open");
+
+    for (const img of document.querySelectorAll<HTMLImageElement>("img[data-zoom]")) {
+      img.addEventListener("mouseenter", () => canHover.matches && show(img));
+      img.addEventListener("mouseleave", () => canHover.matches && hide());
+      img.addEventListener("focus", () => show(img));
+      img.addEventListener("blur", hide);
+      img.addEventListener("click", () => {
+        if (!canHover.matches) show(img);
+      });
+    }
+
+    overlay.addEventListener("click", hide);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") hide();
+    });
+  }
+</script>

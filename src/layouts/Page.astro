@@ -12,7 +12,9 @@ import EventTiles from "../components/EventTiles.astro";
 import About from "../components/About.astro";
 import Programme from "../components/Programme.astro";
 import Tickets from "../components/Tickets.astro";
+import Stories from "../components/Stories.astro";
 import Timeline from "../components/Timeline.astro";
+import Fleet from "../components/Fleet.astro";
 import Practical from "../components/Practical.astro";
 import Finale from "../components/Finale.astro";
 import Partners from "../components/Partners.astro";
@@ -20,6 +22,7 @@ import Socials from "../components/Socials.astro";
 import Closing from "../components/Closing.astro";
 import Footer from "../components/Footer.astro";
 import SectionRail from "../components/Sectionrail.astro";
+import Zoom from "../components/Zoom.astro";
 
 interface Props {
   lang: Lang;
@@ -36,7 +39,9 @@ const { lang } = Astro.props;
     <About lang={lang} />
     <Programme lang={lang} />
     <Tickets lang={lang} />
+    <Stories lang={lang} />
     <Timeline lang={lang} />
+    <Fleet lang={lang} />
     <Practical lang={lang} />
     <Finale lang={lang} />
     <Partners lang={lang} />
@@ -45,4 +50,5 @@ const { lang } = Astro.props;
   <Closing lang={lang} />
   <Footer lang={lang} />
   <SectionRail lang={lang} />
+  <Zoom />
 </Base>
